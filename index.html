@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Flows">
+<title>Flows</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #0a0a0a; color: #f0e8d8;
+    font-family: -apple-system, "SF Pro Display", system-ui, sans-serif;
+    min-height: 100%; min-height: 100vh;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  .wrap { max-width: 480px; margin: 0 auto; padding: 32px 22px 40px; }
+  h1 {
+    font-family: "Hoefler Text", "Times New Roman", serif;
+    font-weight: 400; font-size: 36px; line-height: 1.05;
+    margin: 8px 0 4px;
+  }
+  .sub {
+    font-style: italic; opacity: 0.72;
+    font-size: 14px; margin-bottom: 22px;
+  }
+  .card {
+    display: block;
+    text-decoration: none; color: inherit;
+    background: linear-gradient(180deg, #1a1612 0%, #0e0c0a 100%);
+    border: 1px solid #2a2722;
+    border-radius: 14px;
+    padding: 18px 18px;
+    margin: 12px 0;
+    transition: transform 0.1s ease;
+  }
+  .card:active { transform: scale(0.98); }
+  .card .name {
+    font-family: "Hoefler Text", "Times New Roman", serif;
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .card .when {
+    font-size: 12px; letter-spacing: 0.10em;
+    text-transform: uppercase; opacity: 0.65;
+    margin-bottom: 6px;
+  }
+  .card .desc {
+    font-size: 13.5px; line-height: 1.45;
+    opacity: 0.82; font-style: italic;
+  }
+  .card.hip .when { color: #6da57f; }
+  .card.primer .when { color: #d97a4a; }
+  .card.recovery .when { color: #8aa4c4; }
+  .footnote {
+    margin-top: 24px;
+    font-size: 11.5px; line-height: 1.5;
+    color: #6a655c;
+  }
+  .footnote b { color: #f0e8d8; }
+  hr {
+    border: 0; border-top: 1px solid #2a2722;
+    margin: 22px 0;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Flows</h1>
+<div class="sub">Three timers. Pick the one that fits the state.</div>
+
+<a class="card hip" href="hip-awakening-timer.html">
+  <div class="when">Late night &middot; ~48 min &middot; ends in sleep</div>
+  <div class="name">Hip Awakening</div>
+  <div class="desc">For flexibility + libido + sleep after. Hip-focused, parasympathetic ending, mag glycinate at the close.</div>
+</a>
+
+<a class="card primer" href="centering-primer-timer.html">
+  <div class="when">Daytime &middot; ~35 min &middot; ends activated</div>
+  <div class="name">The Centering Primer</div>
+  <div class="desc">For libido + clarity + the open hours ahead. Hip bloom + HIIT cascade + cold splash. Skip if sleep-debt.</div>
+</a>
+
+<a class="card recovery" href="upper-recovery-timer.html">
+  <div class="when">Anytime &middot; ~20 min &middot; ends parasympathetic</div>
+  <div class="name">The Upper Recovery</div>
+  <div class="desc">For tight shoulders, neck, sleep-deprived days. Cervical + thoracic + scapular work, light hip reset, 4-7-8 close. Nap-friendly.</div>
+</a>
+
+<hr>
+
+<div class="footnote">
+<b>Add to Home Screen:</b> tap Safari's share icon (square with arrow up) &rarr; scroll down &rarr; "Add to Home Screen" &rarr; Add. You'll get a one-tap "Flows" icon that opens this page full-screen, no Safari chrome.<br><br>
+<b>Routing rules</b> live in Claude memory at <code>~/.claude/projects/-/memory/feedback_contortion_session_setup.md</code>. Sleep-debt &ge; 6 h &rarr; Upper Recovery + nap. Upper-body complaint &rarr; Upper Recovery. Daytime libido + clarity &rarr; Primer. Late-night libido + sleep &rarr; Hip Awakening.
+</div>
+
+</div>
+</body>
+</html>
