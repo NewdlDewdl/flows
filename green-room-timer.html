@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>The Green Room — Timer</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --ink: #f0e8d8;
+    --dim: #6a655c;
+    --warm: #9a8a6a;
+    --leaf: #6da57f;
+    --rule: #2a2722;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--ink);
+    font-family: -apple-system, "SF Pro Display", system-ui, sans-serif;
+    height: 100%; width: 100%; overflow: hidden;
+    user-select: none; -webkit-user-select: none;
+    overscroll-behavior: none;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+             env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  body { display: flex; flex-direction: column; align-items: stretch; }
+  .screen { display: none; flex: 1; flex-direction: column; padding: 18px 22px; }
+  .screen.active { display: flex; }
+  .small-caps { font-variant: all-small-caps; letter-spacing: 0.10em; color: var(--dim); }
+  .num { font-variant-numeric: tabular-nums; }
+  hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 12px 0; }
+
+  #start h1 {
+    font-family: "Hoefler Text", "Times New Roman", serif;
+    font-weight: 400; font-size: 38px; line-height: 1.0;
+    margin: 28px 0 6px; letter-spacing: -0.01em;
+  }
+  #start .sub {
+    font-style: italic; opacity: 0.78;
+    font-size: 14px; margin-bottom: 18px;
+  }
+  #start .toc {
+    font-size: 12px; color: var(--dim);
+    line-height: 1.55; margin-bottom: 14px;
+  }
+  #start .toc b { color: var(--ink); font-weight: 600; }
+  #start .preface {
+    font-size: 14px; line-height: 1.55;
+    opacity: 0.88; margin-bottom: 16px; max-width: 38em;
+  }
+  #start .preface em { color: var(--warm); font-style: normal; }
+  #start .options {
+    display: flex; gap: 14px; margin-bottom: 16px;
+    align-items: center; flex-wrap: wrap;
+  }
+  #start .options label {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 13px; opacity: 0.85;
+  }
+  #start .options input[type="checkbox"] { accent-color: var(--warm); }
+  .btn-start {
+    background: var(--warm); color: var(--bg);
+    border: 0; border-radius: 14px;
+    padding: 16px 24px; font-size: 17px; font-weight: 700;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    width: 100%; max-width: 320px;
+    box-shadow: 0 8px 30px rgba(154, 138, 106, 0.30);
+  }
+  .btn-start:active { transform: scale(0.98); }
+
+  #run { justify-content: space-between; padding: 14px 18px 22px; }
+  #section-line {
+    font-size: 12px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--dim);
+    text-align: center; margin-bottom: 8px;
+  }
+  #section-line .accent { color: var(--warm); font-weight: 600; }
+  #section-line .strong { color: var(--ink); font-weight: 600; }
+  #pose-name {
+    font-family: "Hoefler Text", "Times New Roman", serif;
+    font-size: 32px; line-height: 1.1; font-weight: 700;
+    text-align: center; margin: 4px 0 8px;
+    min-height: 1.6em;
+  }
+  #pose-cue {
+    font-size: 14px; line-height: 1.4;
+    opacity: 0.78;
+    font-style: italic; text-align: center;
+    max-width: 28em; margin: 0 auto 12px;
+    min-height: 2.2em;
+  }
+  #countdown {
+    font-size: 116px; font-weight: 200;
+    text-align: center;
+    letter-spacing: -0.02em; line-height: 1;
+    margin: 8px 0 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  #countdown.warn { color: var(--warm); }
+  #total-line {
+    font-size: 11.5px; color: var(--dim);
+    text-align: center; margin-bottom: 18px;
+    letter-spacing: 0.08em;
+  }
+  #total-line b { color: var(--ink); font-weight: 600; }
+  #progress-track {
+    height: 3px; background: var(--rule);
+    border-radius: 2px; overflow: hidden;
+    margin: 0 auto 16px; width: 100%;
+  }
+  #progress-fill {
+    height: 100%; background: var(--leaf);
+    width: 0%; transition: width 0.4s linear;
+  }
+  #next-line {
+    font-size: 13px; color: var(--dim);
+    text-align: center; margin-bottom: 22px;
+    font-style: italic;
+  }
+  #next-line .next-bold { color: var(--ink); font-style: normal; font-weight: 600; opacity: 0.92; }
+  #controls {
+    display: flex; gap: 12px; justify-content: center;
+    align-items: center; margin-top: auto;
+  }
+  .ctl {
+    background: transparent; color: var(--ink);
+    border: 1.5px solid var(--rule);
+    border-radius: 12px;
+    padding: 12px 16px; font-size: 13px;
+    font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; min-width: 84px;
+  }
+  .ctl.primary {
+    background: var(--ink); color: var(--bg);
+    border-color: var(--ink);
+    min-width: 120px; font-size: 14px;
+  }
+  .ctl:active { opacity: 0.7; }
+  .paused #countdown { color: var(--dim); }
+  .paused #pose-name { color: var(--dim); }
+
+  #done { justify-content: center; text-align: center; }
+  #done h2 {
+    font-family: "Hoefler Text", "Times New Roman", serif;
+    font-weight: 400; font-size: 44px; margin: 0 0 12px;
+  }
+  #done p { font-style: italic; opacity: 0.85; max-width: 28em; margin: 0 auto 8px; }
+  #done .reflection {
+    font-size: 14px; line-height: 1.55;
+    opacity: 0.88;
+    max-width: 30em; margin: 16px auto 24px;
+  }
+  #done .reflection b { color: var(--warm); font-weight: 600; }
+  #done .reflection em { color: var(--ink); }
+
+  @media (max-height: 700px) {
+    #countdown { font-size: 92px; }
+    #pose-name { font-size: 26px; }
+  }
+  @media (max-height: 600px) {
+    #countdown { font-size: 76px; }
+    #pose-name { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- START -->
+<div id="start" class="screen active">
+  <h1>The Green Room</h1>
+  <div class="sub">A flow for the body between movements</div>
+  <div class="small-caps" style="font-size:11px; margin-bottom:18px">
+    six movements &middot; <span class="num">~34</span> min &middot; carpet &middot; no props &middot; wall optional
+  </div>
+
+  <div class="preface">
+    <b>Twenty per cent effort, knee feedback is the alarm.</b>
+    Tonight contains the <em>first reading of the W-Sit</em> &mdash; the internal-rotation door that's been unaddressed while every other flow opened the external one. Two doors out of the same hip; tonight, the other one opens. Sharp / electric / pinching in the lateral knee or kneecap &rarr; exit immediately.
+  </div>
+
+  <div class="toc">
+    <b>I.</b> Hands &middot; <span class="num">3 min</span> &middot; tasti &nbsp;<span style="color:#3a3530">|</span>&nbsp;
+    <b>II.</b> Cervical Release &middot; <span class="num">5.5 min</span> &middot; largo &nbsp;<span style="color:#3a3530">|</span>&nbsp;
+    <b>III.</b> Hip Warmth &middot; <span class="num">5.7 min</span> &middot; andante &nbsp;<span style="color:#3a3530">|</span>&nbsp;
+    <b>IV.</b> External Rotation &middot; <span class="num">11 min</span> &middot; adagio &nbsp;<span style="color:#3a3530">|</span>&nbsp;
+    <b>V.</b> Internal &mdash; W-Sit, First Reading &middot; <span class="num">6 min</span> &middot; andantino &nbsp;<span style="color:#3a3530">|</span>&nbsp;
+    <b>VI.</b> The Coda &middot; <span class="num">2.75 min</span> &middot; al fine
+  </div>
+
+  <div class="options">
+    <label><input type="checkbox" id="opt-sound" checked> chimes</label>
+    <label><input type="checkbox" id="opt-wake" checked> keep screen on</label>
+    <label><input type="checkbox" id="opt-warning" checked> 5-sec warning</label>
+  </div>
+
+  <button class="btn-start" id="btn-go">Start the flow</button>
+
+  <div class="small-caps" style="margin-top:18px; font-size:10.5px">
+    tap pause to pause &middot; skip advances &middot; back to the bench when done
+  </div>
+</div>
+
+<!-- RUN -->
+<div id="run" class="screen">
+  <div>
+    <div id="section-line">
+      Section <span class="accent" id="sec-num">I</span> &middot; <span id="sec-name">Hands</span>
+      &middot; pose <span class="strong" id="pose-idx">1</span>/<span class="strong" id="pose-total">29</span>
+    </div>
+    <div id="pose-name">Wrist circles</div>
+    <div id="pose-cue">Both directions, slow as a metronome at 50. Forearm stays still, wrist moves alone.</div>
+  </div>
+
+  <div>
+    <div id="countdown" class="num">0:40</div>
+    <div id="total-line">Total remaining <b class="num" id="total-rem">34:00</b></div>
+    <div id="progress-track"><div id="progress-fill"></div></div>
+    <div id="next-line">Next: <span class="next-bold" id="next-name">Finger fan + interlace</span></div>
+  </div>
+
+  <div id="controls">
+    <button class="ctl" id="btn-prev">&#9664; Back</button>
+    <button class="ctl primary" id="btn-pause">Pause</button>
+    <button class="ctl" id="btn-skip">Skip &#9654;</button>
+  </div>
+
+  <div style="text-align:center; margin-top:14px">
+    <button class="ctl" id="btn-reset" style="font-size:11px; padding:8px 14px; min-width:0">Reset to start</button>
+  </div>
+</div>
+
+<!-- DONE -->
+<div id="done" class="screen">
+  <h2>Done.</h2>
+  <p>Now back to the bench.</p>
+  <hr class="rule" style="max-width:18em; margin:18px auto">
+  <div class="reflection">
+    The hips are <b>open</b>, the wrists are <b>loose</b>, the spine is <b>long</b>.<br><br>
+    Tonight you took <em>Step 1 of 9</em> on the W-Sit ladder. The internal-rotation door has opened.<br><br>
+    <em>Play.</em>
+  </div>
+  <button class="btn-start" id="btn-again" style="max-width:220px">Run it again</button>
+</div>
+
+<script>
+'use strict';
+
+const SEQ = [
+  // ----- I. Hands (3 min) -----
+  {section:'I',sectionName:'Hands', name:'Wrist circles',
+    cue:'Both directions, slow as a metronome at 50. Forearm stays still, wrist moves alone.', secs:40},
+  {section:'I',sectionName:'Hands', name:'Finger fan + interlace',
+    cue:'Open the hand wide, fingers fanned. Then interlace fingers, turn palms out. The web between thumb and index is where piano tension lives.', secs:40},
+  {section:'I',sectionName:'Hands', name:'Forearm pronation/supination',
+    cue:'Elbow at side, slow rotation of the forearm only. Hand turns; biceps stays still. Releases octave tension.', secs:60},
+  {section:'I',sectionName:'Hands', name:'Shoulder shrugs — three positions',
+    cue:'Up, back, down — slow. Settle the shoulders into the position they should have been holding while you played.', secs:40},
+
+  // ----- II. Cervical Release (~5.5 min) -----
+  {section:'II',sectionName:'Cervical Release', name:'Chin tucks',
+    cue:'Stand or sit against a wall. Back of the head presses into the wall. Small double-chin movement, 3-sec hold each.', secs:60},
+  {section:'II',sectionName:'Cervical Release', name:'Neck CARs (R)',
+    cue:'Slow, controlled rotation — chin to chest, ear to shoulder, head back, ear to other shoulder. 20 seconds per revolution.', secs:45},
+  {section:'II',sectionName:'Cervical Release', name:'Neck CARs (L)',
+    cue:'Three revolutions the other direction. End facing forward, neutral.', secs:45},
+  {section:'II',sectionName:'Cervical Release', name:'Doorway pec stretch (R)',
+    cue:'If a doorframe is available — elbow at shoulder height, step through. Otherwise: clasp hands behind back, lift chest.', secs:45},
+  {section:'II',sectionName:'Cervical Release', name:'Doorway pec stretch (L)',
+    cue:'Other side.', secs:45},
+  {section:'II',sectionName:'Cervical Release', name:'Threading the needle (R)',
+    cue:'Quadruped. Right arm slides under left, right shoulder and ear lower to the floor. Thoracic rotation + posterior shoulder.', secs:45},
+  {section:'II',sectionName:'Cervical Release', name:'Threading the needle (L)',
+    cue:'Other side.', secs:45},
+
+  // ----- III. Hip Warmth (~5.7 min) -----
+  {section:'III',sectionName:'Hip Warmth', name:'Cat–cow',
+    cue:'Lead the descent with the tailbone. Eight-second cycle.', secs:80},
+  {section:'III',sectionName:'Hip Warmth', name:'Hip CARs (R)',
+    cue:'Quadruped. Biggest possible orbit, ribs locked. Ten seconds per revolution. The hip moves alone.', secs:60},
+  {section:'III',sectionName:'Hip Warmth', name:'Hip CARs (L)',
+    cue:'Three revolutions the other direction.', secs:60},
+  {section:'III',sectionName:'Hip Warmth', name:'Deep squat hold',
+    cue:'Hands prayer between knees, elbows press knees outward. Second 30 seconds is where it opens.', secs:60},
+  {section:'III',sectionName:'Hip Warmth', name:'World\'s greatest stretch (R)',
+    cue:'Lunge, right hand inside front foot, left hand reaches to ceiling. T-spine rotation, not lumbar.', secs:40},
+  {section:'III',sectionName:'Hip Warmth', name:'World\'s greatest stretch (L)',
+    cue:'Same on the other side.', secs:40},
+
+  // ----- IV. External Rotation (~11 min) -----
+  {section:'IV',sectionName:'External Rotation', name:'Half pigeon (R)',
+    cue:'Chest sinks as the hip releases. Pelvis stays square. Eyes closed.', secs:120},
+  {section:'IV',sectionName:'External Rotation', name:'Half pigeon (L)',
+    cue:'Same on the other side.', secs:120},
+  {section:'IV',sectionName:'External Rotation', name:'Flat frog hold',
+    cue:'Knees wide, shins parallel, hips sink slowly. Forearms down. Gravity opens, not effort.', secs:180},
+  {section:'IV',sectionName:'External Rotation', name:'Cossack squat (R)',
+    cue:'Knee tracks toes. Bent-side adductor is what loads. Slow, bodyweight only.', secs:60},
+  {section:'IV',sectionName:'External Rotation', name:'Cossack squat (L)',
+    cue:'Other side.', secs:60},
+  {section:'IV',sectionName:'External Rotation', name:'Suspended split (R)',
+    cue:'Use the wall or chair for the back hip if needed. Pelvis points forward, not opened.', secs:60},
+  {section:'IV',sectionName:'External Rotation', name:'Suspended split (L)',
+    cue:'Other side.', secs:60},
+
+  // ----- V. Internal Rotation — W-Sit First Reading (~6 min) -----
+  {section:'V',sectionName:'W-Sit, First Reading', name:'Seiza',
+    cue:'Kneel, sit back on heels, tops of feet flat. Spine tall. If kneecap pinches: fold a sweater between heels and butt. This is the entry posture.', secs:120},
+  {section:'V',sectionName:'W-Sit, First Reading', name:'W-Sit Step 1 — upright',
+    cue:'From seiza, slowly bring feet OUT beside hips (not under). Sit between heels onto the floor. Spine tall, hands on thighs. If anything sharp or electric in the lateral knee → exit immediately. One minute is plenty for night one.', secs:60},
+  {section:'V',sectionName:'W-Sit, First Reading', name:'Bilateral knees-to-chest (reset)',
+    cue:'Both knees hugged in, gentle rock. Decompress the SI joint before the next pose.', secs:30},
+  {section:'V',sectionName:'W-Sit, First Reading', name:'Internal-rotation 90/90 (R)',
+    cue:'Right leg in front at 90°, left leg behind at 90°. Lean slightly over the front leg. The seated cousin of W-Sit.', secs:45},
+  {section:'V',sectionName:'W-Sit, First Reading', name:'Internal-rotation 90/90 (L)',
+    cue:'Same on the other side. Both sides must get equal time — asymmetric rotation torques the pelvis.', secs:45},
+  {section:'V',sectionName:'W-Sit, First Reading', name:'Quad stretch in W-position',
+    cue:'From W-Sit, lean back gently onto hands (not elbows). Quads should stretch, knees should NOT pinch. 60 seconds.', secs:60},
+
+  // ----- VI. The Coda (~2.75 min) -----
+  {section:'VI',sectionName:'The Coda', name:'Bilateral knees-to-chest',
+    cue:'Both knees hugged in, rock side to side. SI joint decompression after the W-Sit work.', secs:45},
+  {section:'VI',sectionName:'The Coda', name:'Reclined butterfly',
+    cue:'Soles together, knees fall open, hands on belly. Belly rises with breath.', secs:60},
+  {section:'VI',sectionName:'The Coda', name:'Legs up the wall (or supine 4-7-8)',
+    cue:'If a wall is available — hips to wall, legs straight up. Otherwise: supine, knees bent, feet flat. Four-seven-eight breath, four cycles.', secs:60},
+];
+SEQ.forEach((p, i) => { p.idx = i + 1; });
+const TOTAL_SECS = SEQ.reduce((a, p) => a + p.secs, 0);
+
+const $ = id => document.getElementById(id);
+let cur = 0;
+let remaining = 0;
+let timerId = null;
+let paused = true;
+let wakeLock = null;
+let audioCtx = null;
+let warnedFor = null;
+
+const optSound = $('opt-sound');
+const optWake = $('opt-wake');
+const optWarning = $('opt-warning');
+
+function ensureAudio() {
+  if (!audioCtx) {
+    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    catch (e) { audioCtx = null; }
+  }
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function chime(freq, dur, vol) {
+  if (!optSound.checked) return;
+  const ctx = ensureAudio();
+  if (!ctx) return;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'sine';
+  osc.frequency.value = freq;
+  gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(vol || 0.18, ctx.currentTime + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.start(); osc.stop(ctx.currentTime + dur + 0.02);
+}
+function chimeWarning() { chime(440, 0.18, 0.14); }
+function chimeTransition() {
+  chime(660, 0.20, 0.20);
+  setTimeout(() => chime(880, 0.30, 0.18), 160);
+}
+function chimeDone() {
+  chime(523, 0.25, 0.18);
+  setTimeout(() => chime(659, 0.25, 0.18), 200);
+  setTimeout(() => chime(784, 0.50, 0.22), 400);
+}
+
+async function lockScreen() {
+  if (!optWake.checked) return;
+  try {
+    if ('wakeLock' in navigator) {
+      wakeLock = await navigator.wakeLock.request('screen');
+    }
+  } catch (e) { /* silently */ }
+}
+async function unlockScreen() {
+  if (wakeLock) {
+    try { await wakeLock.release(); } catch (e) {}
+    wakeLock = null;
+  }
+}
+document.addEventListener('visibilitychange', async () => {
+  if (document.visibilityState === 'visible' && !paused) {
+    await lockScreen();
+  }
+  if (document.visibilityState === 'visible' && audioCtx && audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+});
+
+function fmt(s) {
+  const m = Math.floor(s / 60); const r = s % 60;
+  return m + ':' + String(r).padStart(2, '0');
+}
+
+function render() {
+  const p = SEQ[cur];
+  if (!p) return showDone();
+  const next = SEQ[cur + 1];
+
+  $('sec-num').textContent = p.section;
+  $('sec-name').textContent = p.sectionName;
+  $('pose-idx').textContent = String(p.idx);
+  $('pose-total').textContent = String(SEQ.length);
+
+  $('pose-name').textContent = p.name;
+  $('pose-cue').textContent = p.cue;
+
+  $('countdown').textContent = fmt(remaining);
+
+  let totalLeft = remaining;
+  for (let i = cur + 1; i < SEQ.length; i++) totalLeft += SEQ[i].secs;
+  $('total-rem').textContent = fmt(totalLeft);
+
+  const completedThisPose = p.secs - remaining;
+  let completed = completedThisPose;
+  for (let i = 0; i < cur; i++) completed += SEQ[i].secs;
+  $('progress-fill').style.width = (100 * completed / TOTAL_SECS) + '%';
+
+  if (next) {
+    $('next-name').textContent = next.name;
+    $('next-line').firstChild.nodeValue = 'Next: ';
+  } else {
+    $('next-name').textContent = 'back to the bench.';
+    $('next-line').firstChild.nodeValue = 'Last pose. ';
+  }
+
+  if (remaining <= 5 && remaining > 0) {
+    $('countdown').classList.add('warn');
+  } else {
+    $('countdown').classList.remove('warn');
+  }
+}
+
+function tick() {
+  if (paused) return;
+  if (remaining <= 0) {
+    chimeTransition();
+    warnedFor = null;
+    cur++;
+    if (cur >= SEQ.length) {
+      stopTimer();
+      chimeDone();
+      showDone();
+      return;
+    }
+    remaining = SEQ[cur].secs;
+    render();
+    return;
+  }
+  if (remaining === 5 && warnedFor !== cur && optWarning.checked) {
+    chimeWarning();
+    warnedFor = cur;
+  }
+  remaining--;
+  render();
+}
+
+function startTimer() {
+  stopTimer();
+  timerId = setInterval(tick, 1000);
+  paused = false;
+  document.body.classList.remove('paused');
+  $('btn-pause').textContent = 'Pause';
+  lockScreen();
+}
+function stopTimer() {
+  if (timerId) { clearInterval(timerId); timerId = null; }
+}
+function pauseTimer() {
+  stopTimer();
+  paused = true;
+  document.body.classList.add('paused');
+  $('btn-pause').textContent = 'Resume';
+  unlockScreen();
+}
+
+function gotoPose(i) {
+  cur = Math.max(0, Math.min(i, SEQ.length - 1));
+  remaining = SEQ[cur].secs;
+  warnedFor = null;
+  render();
+}
+function skip() { gotoPose(cur + 1); }
+function back() { gotoPose(cur - 1); }
+function reset() {
+  pauseTimer();
+  gotoPose(0);
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function showStart() { showScreen('start'); }
+function showRun()   { showScreen('run'); render(); }
+function showDone()  { showScreen('done'); }
+
+$('btn-go').addEventListener('click', () => {
+  ensureAudio();
+  gotoPose(0);
+  showRun();
+  setTimeout(() => chime(523, 0.15, 0.16), 100);
+  startTimer();
+});
+$('btn-pause').addEventListener('click', () => {
+  if (paused) startTimer(); else pauseTimer();
+});
+$('btn-skip').addEventListener('click', skip);
+$('btn-prev').addEventListener('click', back);
+$('btn-reset').addEventListener('click', () => {
+  if (confirm('Reset to the start?')) reset();
+});
+$('btn-again').addEventListener('click', () => {
+  ensureAudio();
+  gotoPose(0);
+  showRun();
+  startTimer();
+});
+
+remaining = SEQ[0].secs;
+showStart();
+</script>
+</body>
+</html>
