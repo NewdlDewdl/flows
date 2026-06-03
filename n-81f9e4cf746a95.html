@@ -9,38 +9,40 @@
 <meta name="apple-mobile-web-app-title" content="Thursday">
 <title>Thursday</title>
 <style>
-  :root{ color-scheme: dark; --bg:#0a0a0a; --ink:#f0e8d8; --line:#2a2722; --coral:#d97a4a; --gold:#d8a24a; --teal:#6da57f; --dim:#9a9384; }
+  :root{ color-scheme: dark; --bg:#0a0a0a; --ink:#f0e8d8; --line:#2a2722; --coral:#d97a4a; --gold:#d8a24a; --teal:#6da57f; --blue:#8aa4c4; --dim:#9a9384; }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);min-height:100vh;
-    font-family:-apple-system,"SF Pro Text",system-ui,sans-serif;
+    font-family:-apple-system,"SF Pro Text",system-ui,sans-serif;font-size:16px;
     padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom);
     padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
-  .wrap{max-width:480px;margin:0 auto;padding:34px 22px 56px}
+  .wrap{max-width:500px;margin:0 auto;padding:34px 22px 60px}
   .kick{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);font-weight:700;margin-bottom:10px}
-  h1{font-family:"Hoefler Text","Times New Roman",serif;font-weight:700;font-size:34px;line-height:1.04;margin:0 0 8px}
-  .sub{font-style:italic;opacity:.74;font-size:14.5px;line-height:1.5;margin:0 0 8px}
-  .frame{font-size:15.5px;line-height:1.55;margin:18px 0 6px;color:var(--ink)}
+  h1{font-family:"Hoefler Text","Times New Roman",serif;font-weight:700;font-size:35px;line-height:1.03;margin:0 0 9px}
+  .sub{font-style:italic;opacity:.74;font-size:15px;line-height:1.5;margin:0}
+  .frame{font-size:16px;line-height:1.58;margin:20px 0 4px}
   .frame b{color:var(--coral)}
-  h2{font-family:"Hoefler Text","Times New Roman",serif;font-size:21px;font-weight:700;margin:30px 0 8px;display:flex;align-items:center;gap:9px}
+  h2{font-family:"Hoefler Text","Times New Roman",serif;font-size:22px;font-weight:700;margin:34px 0 9px;display:flex;align-items:center;gap:9px;scroll-margin-top:14px}
   h2 .d{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--gold));flex:none}
-  p{font-size:14.5px;line-height:1.55;margin:.5em 0;opacity:.92}
-  .card{background:linear-gradient(180deg,#1a1612 0%,#0e0c0a 100%);border:1px solid var(--line);border-radius:14px;padding:16px 17px;margin:12px 0}
-  .when{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;font-weight:700}
-  .step{display:flex;gap:13px;padding:11px 0;border-bottom:1px solid var(--line)}
-  .step:last-child{border-bottom:0}
-  .num{flex:none;width:25px;height:25px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--gold));color:#120d08;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
-  .step b{font-size:15px}
-  .step p{margin:.25em 0 0;font-size:13.5px;opacity:.82;line-height:1.5}
-  .rules li{margin:.5em 0;font-size:14px;line-height:1.5;opacity:.9}
-  .rules li b{color:var(--ink);opacity:1}
-  .lines{background:linear-gradient(180deg,#1c1710 0%,#100c08 100%);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:14px 16px;margin:12px 0}
-  .lines .q{font-family:"Hoefler Text",serif;font-size:16px;line-height:1.45;margin:.55em 0;color:var(--ink)}
-  .lines .q::before{content:"\201C";color:var(--gold)} .lines .q::after{content:"\201D";color:var(--gold)}
-  .time{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line)}
+  p{font-size:15px;line-height:1.58;margin:.5em 0;opacity:.93}
+  .em{color:var(--gold);font-style:italic}
+  .card{background:linear-gradient(180deg,#1a1612 0%,#0e0c0a 100%);border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin:13px 0}
+  .when{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-weight:700}
+  .time{display:flex;gap:13px;padding:9px 0;border-bottom:1px solid var(--line)}
   .time:last-child{border-bottom:0}
-  .time .t{flex:none;width:74px;font-weight:700;font-size:13px;color:var(--coral);font-variant-numeric:tabular-nums}
-  .time .x{font-size:13.5px;line-height:1.45;opacity:.9}
-  .foot{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;font-size:11.5px;line-height:1.6;color:#6a655c}
+  .time .t{flex:none;width:80px;font-weight:700;font-size:12.5px;color:var(--coral);font-variant-numeric:tabular-nums;padding-top:1px}
+  .time .x{font-size:14px;line-height:1.45;opacity:.92}
+  .step{display:flex;gap:13px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:0}
+  .num{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--coral),var(--gold));color:#120d08;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .step b{font-size:15.5px} .step p{margin:.25em 0 0;font-size:13.5px;opacity:.84;line-height:1.5}
+  ul.rules,ul.donts{margin:.3em 0;padding-left:1.15em}
+  ul.rules li,ul.donts li{margin:.5em 0;font-size:14.5px;line-height:1.5;opacity:.92}
+  ul.rules li b{color:var(--ink);opacity:1}
+  ul.donts li::marker{color:var(--coral)}
+  .lines{background:linear-gradient(180deg,#1c1710 0%,#100c08 100%);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;padding:14px 16px;margin:12px 0}
+  .lines .q{font-family:"Hoefler Text",serif;font-size:16px;line-height:1.46;margin:.55em 0}
+  .lines .q::before{content:"\201C";color:var(--gold)} .lines .q::after{content:"\201D";color:var(--gold)}
+  .foot{margin-top:32px;border-top:1px solid var(--line);padding-top:14px;font-size:11.5px;line-height:1.6;color:#6a655c}
   .foot b{color:var(--ink)}
   .star{text-align:center;color:var(--gold);letter-spacing:.5em;margin-top:26px;font-size:13px;opacity:.7}
 </style>
@@ -49,33 +51,45 @@
 <div class="wrap">
   <div class="kick">Thursday night</div>
   <h1>Show Up. Lead Back.</h1>
-  <p class="sub">She is driving this one. Your job is not to out-plan her. It is to be all the way there, and to stop only receiving.</p>
+  <p class="sub">She is pulling you into her world, her town, her car, her hands, her music. Your one job all night is to match that and lead back, so none of it is one-sided.</p>
 
-  <p class="frame">She pulled you toward her, her town, her car, her hands. The whole night, your one assignment is to <b>match her openness and initiate back</b>, so it is not all her.</p>
+  <p class="frame">She invited you to her, said she would show you around <span class="em">and</span> play you more of her songs. That is a lot of open door. You do not answer it with a bigger speech. You answer it by <b>being all the way there and initiating back</b>.</p>
 
-  <h2><span class="d"></span>The shape</h2>
+  <h2><span class="d"></span>The route</h2>
   <div class="card">
-    <div class="time"><div class="t">6:21 PM</div><div class="x">You land. Fresh shirt at the airport. Go straight to her, not home first.</div></div>
-    <div class="time"><div class="t">~7:30 PM</div><div class="x">She is free. You are about an hour out, so it lines up.</div></div>
-    <div class="time"><div class="t">~8:00 PM</div><div class="x">Meet. Let her lead. Be genuinely curious about her world.</div></div>
-    <div class="time"><div class="t">8:33 PM</div><div class="x">Sunset. The soft hour. The car is your close-contact moment.</div></div>
-    <div class="time"><div class="t">~11 PM</div><div class="x">Head back. You have an early morning. Do not go nocturnal.</div></div>
+    <div class="time"><div class="t">6:21 PM</div><div class="x">Land. Change into a fresh shirt before you leave the terminal.</div></div>
+    <div class="time"><div class="t">~7:20 PM</div><div class="x">Home first for your car. She hates driving, so you are driving tonight. Freshen up, do not dawdle.</div></div>
+    <div class="time"><div class="t">~7:40 PM</div><div class="x">On the road to her. About 40 to 50 minutes north. Her music queued.</div></div>
+    <div class="time"><div class="t">~8:30 PM</div><div class="x">To her, right around sunset (8:33). She takes the lead on where.</div></div>
+    <div class="time"><div class="t">~11 PM</div><div class="x">Start heading back. You have an early morning. Do not let it run to 1 AM.</div></div>
   </div>
+
+  <h2><span class="d"></span>You drive. That is the first move.</h2>
+  <p>She hates driving. So you handling every mile tonight is not a chore, it is you taking care of her before she has to ask. Roll in with gas in the tank, a charged phone, the car not a disaster, and her music ready to go. The drive with her songs on was one of the best parts of the lake day. Recreate that on purpose.</p>
+
+  <h2><span class="d"></span>What the night is actually about</h2>
+  <p>It is not the venue. It is that she wants to show you her world and <span class="em">her songs</span>. Music is the real thread between you two and the whole reason for this summer. So when she plays you something, be all the way in it, the way you were when you told her one was the best yet and she said she was smiling so hard. Ask what the song means to her. When she started singing. What she actually wants to sing with you.</p>
+  <p>Then say the realest move you have out loud: <span class="em">you sing, I play, this summer.</span> That is not a line. It is the thing you already both want, and naming it is you leading.</p>
+
+  <h2><span class="d"></span>Talk like you two talk</h2>
+  <p>Neither of you does small talk, so do not start now. The hooks are already there: her singing and the songs she is sharing, the films you trade back and forth, the culture stuff you riff on. Ask real questions and actually listen. You do not have to be clever. You have to be present.</p>
 
   <h2><span class="d"></span>Make your own moves</h2>
-  <p>You already read her well. You just do not act on it. A move is closing the gap between reading and acting. Not a trick. You, finally acting.</p>
+  <p>You already read her well. You just do not act on it. A move is only the gap between reading and acting. Not a trick you run on her. You, finally moving.</p>
   <ul class="rules">
     <li><b>From real wanting.</b> Not because it is your turn or because she wants you. A forced move reads worse than none.</li>
-    <li><b>An offer, not a grab.</b> Slow and visible so she can meet it or let it pass. Telegraphing is the consent.</li>
-    <li><b>Her response sets the pace.</b> Met, keep going. Pause or pull-back, ease off. No sulking, no games.</li>
+    <li><b>An offer, not a grab.</b> Slow and visible so she can meet it or let it pass. Telegraphing is the consent, and it is more charged anyway.</li>
+    <li><b>Her response sets the pace.</b> Met, keep going. Pause or pull-back, ease off, no sulking, no games.</li>
   </ul>
   <div class="card">
-    <div class="step"><div class="num">1</div><div><b>Eyes.</b><p>Hold her gaze past comfortable, let her look away first. When she is inches from your face, do not bail by looking down.</p></div></div>
-    <div class="step"><div class="num">2</div><div><b>Touch back.</b><p>Stop only receiving it. Brush her hand, then take it. Tuck her hair. A hand on her arm or knee.</p></div></div>
-    <div class="step"><div class="num">3</div><div><b>One true thing, out loud.</b><p>Your hard one. One sentence: "I like being in your world." The in-person rep you keep dodging.</p></div></div>
-    <div class="step"><div class="num">4</div><div><b>The kiss, if it is there.</b><p>Read her: lingering, soft, glancing at your mouth, not backing up. Close the distance slowly, or just ask, "can I kiss you?" Asking is not unsexy. Do not lunge.</p></div></div>
+    <div class="step"><div class="num">1</div><div><b>Eyes.</b><p>Hold her gaze past comfortable; let her look away first. When she is inches from your face, do not escape it by looking down.</p></div></div>
+    <div class="step"><div class="num">2</div><div><b>Touch back.</b><p>Stop only receiving it. Brush her hand and then take it. Tuck her hair. A hand on her arm or her knee.</p></div></div>
+    <div class="step"><div class="num">3</div><div><b>One true thing, out loud.</b><p>Your hard one. One sentence: "I like being in your world." The in-person rep you keep routing through text.</p></div></div>
+    <div class="step"><div class="num">4</div><div><b>The kiss, if it is there.</b><p>Read her: lingering, soft, glancing at your mouth, not backing up. Close the distance slowly, slow enough she can meet you or stop it, or just ask, "can I kiss you?" Asking is not unsexy. Do not lunge.</p></div></div>
   </div>
-  <p>When she leans back to check her work, that pause is the window. You do not have to take it. But notice it instead of letting it pass like the hug.</p>
+
+  <h2><span class="d"></span>The makeup</h2>
+  <p>She offered to do your makeup in the car. That is her handing you closeness and a little play. Hold still, hold her eyes, banter back the way you two do, and thank her looking at her, not at the mirror. When she leans back to check her work, that pause is the window. You do not have to take it. But notice it this time, instead of letting it slide by like the hug.</p>
 
   <h2><span class="d"></span>If you freeze</h2>
   <div class="lines">
@@ -83,10 +97,16 @@
     <p class="q">I'm not going to say the word back just to be even. But I'm here, and I want to find out where this goes. Together.</p>
   </div>
 
-  <h2><span class="d"></span>Hold the line</h2>
-  <p>Get her pin before you fly so you drive straight from the airport. Check the radar; there is a storm chance. End around 11; you have somewhere to be in the morning. And the whole point: one real move, from genuine wanting. Reading is not your weak spot anymore. Acting is.</p>
+  <h2><span class="d"></span>Don't</h2>
+  <ul class="donts">
+    <li>Go passive and let her run the entire night. She is leading; meet her halfway.</li>
+    <li>Hand her the wheel. You drive.</li>
+    <li>Look away during the makeup. That is the moment, not an escape from it.</li>
+    <li>Manufacture a move you do not feel. She went first because she meant it; match that, do not fake it.</li>
+    <li>Fill the quiet with small talk. You two are good at silence. Let it sit.</li>
+  </ul>
 
-  <div class="foot"><b>For your eyes.</b> Unlisted, no search indexing, no names. Land time and sunset checked June 3, 2026.</div>
+  <div class="foot"><b>For your eyes.</b> Unlisted, no indexing, no names. Land time and sunset checked June 3, 2026.</div>
   <div class="star">&#10022; &#10022; &#10022;</div>
 </div>
 </body>
