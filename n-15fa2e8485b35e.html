@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tonight">
+<title>Tonight</title>
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#0b0a08; --card:#141109; --card2:#181308;
+    --ink:#efe7d6; --dim:#a59c88; --faint:#6f6857;
+    --line:#2c2618; --gold:#e0b25c; --gold-soft:#f0d9a8;
+    --rose:#dd9090; --teal:#83b59a;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(120% 60% at 50% -10%, #1c1408 0%, rgba(28,20,8,0) 60%),
+      var(--bg);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:-apple-system,"SF Pro Text",system-ui,sans-serif;
+    font-size:16.5px; line-height:1.6;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) calc(env(safe-area-inset-bottom) + 40px) env(safe-area-inset-left);
+  }
+  .wrap{max-width:540px;margin:0 auto;padding:30px 20px}
+  .kick{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
+  h1{font-family:"Hoefler Text",Georgia,serif;font-weight:700;font-size:34px;line-height:1.04;margin:0 0 8px;letter-spacing:-.01em}
+  .sub{color:var(--dim);font-size:14.5px;font-style:italic;margin:0 0 22px}
+
+  .hero{
+    background:linear-gradient(180deg,#1a1408,#100c06);
+    border:1px solid var(--line); border-left:3px solid var(--gold);
+    border-radius:16px; padding:18px 18px 8px; margin:0 0 22px;
+    box-shadow:0 10px 40px rgba(0,0,0,.45);
+  }
+  .hero .lbl{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:6px}
+  ol.one{margin:.2em 0 .4em;padding-left:1.3em}
+  ol.one li{margin:.55em 0;font-size:16.5px;line-height:1.5}
+  ol.one li b{color:var(--gold-soft)}
+
+  .glance{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 16px 14px;margin:0 0 14px}
+  .row{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(44,38,24,.6);font-size:15px;line-height:1.45}
+  .row:last-child{border-bottom:0}
+  .row .k{flex:none;width:74px;color:var(--gold);font-weight:700;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+  .row .v{flex:1}
+
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:11px 0;overflow:hidden}
+  details[open]{background:var(--card2)}
+  summary{
+    list-style:none; cursor:pointer; padding:15px 16px;
+    font-family:"Hoefler Text",Georgia,serif; font-size:19px; font-weight:700;
+    display:flex; align-items:center; gap:11px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex:none;box-shadow:0 0 10px rgba(224,178,92,.6)}
+  summary .chev{margin-left:auto;color:var(--dim);font-size:13px;transition:transform .2s}
+  details[open] summary .chev{transform:rotate(90deg)}
+  .body{padding:2px 17px 18px}
+  .body h3{font-family:"Hoefler Text",Georgia,serif;font-size:16.5px;color:var(--gold-soft);margin:16px 0 5px}
+  .body h3:first-child{margin-top:6px}
+  p{margin:.5em 0}
+  ul{margin:.45em 0;padding-left:1.2em}
+  li{margin:.42em 0}
+  .say{background:#0e0b06;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:11px;padding:12px 14px;margin:10px 0;font-size:16px;line-height:1.55}
+  .say.rose{border-left-color:var(--rose)}
+  .tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal);display:block;margin-bottom:6px}
+  .tag.r{color:var(--rose)}
+  b.g{color:var(--gold-soft)}
+  .foot{margin-top:26px;border-top:1px solid var(--line);padding-top:14px;color:var(--faint);font-size:12px;line-height:1.6}
+  .star{text-align:center;color:var(--gold);letter-spacing:.55em;margin:22px 0 4px;font-size:13px;opacity:.75}
+  .big{font-size:17.5px;line-height:1.55}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kick">Thursday &middot; June 4</div>
+  <h1>Tonight, start to finish</h1>
+  <p class="sub">Built so you can forget it and just be with her. You are not auditioning. She already likes you.</p>
+
+  <div class="hero">
+    <div class="lbl">If your head goes loud, read only this</div>
+    <ol class="one">
+      <li>She <b>already likes you.</b> This is not a test you can fail.</li>
+      <li>Be <b>curious</b> about her world and her music. Ask, then listen.</li>
+      <li>Make <b>one real move</b>, from genuine wanting, slow and visible.</li>
+      <li>Let <b>her</b> set when the night ends. However long is the gift.</li>
+      <li>You do not owe the word back. <b>"I want to find out, with you"</b> is enough.</li>
+    </ol>
+  </div>
+
+  <div class="glance">
+    <div class="row"><div class="k">Land</div><div class="v">~6:21 PM (check your airline app for delays, that is the only real risk)</div></div>
+    <div class="row"><div class="k">Route</div><div class="v">Land &rarr; home for your car (she will not drive) &rarr; to her. Realistic: <b class="g">~8:30 PM.</b> Text her that today.</div></div>
+    <div class="row"><div class="k">Her</div><div class="v">Free from ~7:30. Showing you around + playing you her songs. Offered to do your makeup in the car. She leads; you initiate back.</div></div>
+    <div class="row"><div class="k">Sky</div><div class="v">Sunset <b class="g">8:34</b>, full dusk 9:01. You arrive at golden hour.</div></div>
+    <div class="row"><div class="k">Weather</div><div class="v">Warm ~84&deg; easing to low-70s. Only 15-20% pop-up storm before 10, then clear. Light breeze.</div></div>
+    <div class="row"><div class="k">End time</div><div class="v"><b class="g">Her curfew sets the end.</b> Ask her early what time she has to be home. And sanity-check what Friday morning actually needs before banking on a late night.</div></div>
+  </div>
+
+  <details>
+    <summary><span class="dot"></span>The runway: office to her driveway<span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <h3>This morning</h3>
+      <ul>
+        <li>Rehydrate for real: water <b>plus a pinch of salt</b> or an electrolyte, and eat. Plain water alone will not fix dehydration. This is your wheelhouse.</li>
+        <li>The office walk-in: a backpack on a checkout day is the most normal thing in the building. Side door, at a transition. Nobody is tracking you. 30 seconds of nerves, then you are just in the room.</li>
+        <li>Confirm you are checked out and packed (bathroom, outlets, under the bed, the sheets).</li>
+      </ul>
+      <h3>The flight</h3>
+      <ul>
+        <li>Water, a real snack, and <b>sleep.</b> A 60-90 min nap is the best thing you can do for tonight. Alarm so you do not miss the landing.</li>
+      </ul>
+      <h3>Home, the 30-minute reset</h3>
+      <ul>
+        <li>Quick shower (she will be close to your face for the makeup, fresh wins).</li>
+        <li>Outfit you feel hot in and can move in; a layer for when it cools. Smell good, not strong.</li>
+        <li>Car: gas, phone charged + a cable, clear the trash, wipe her seat, queue a little music then turn it down when she is in.</li>
+        <li>Two minutes of stillness before you pull out. You are not late. She is free all evening.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot"></span>The arc: five movable blocks<span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <p class="big">Treat these like songs in a set, not steps in a recipe. If a block is going great, stay in it and throw the rest away. Her energy is the conductor.</p>
+
+      <h3>A &middot; Arrival + the makeup</h3>
+      <p>Greet her like you are genuinely happy to see her. A warm hug, not a handshake, not a lunge. The makeup is the opener she set up: she is inches away, focused on you, touching you. <b>Do not look away.</b> Be playful: "I trust you, do not make me look crazy." Let it be slow and close. Thank her and mean it. The move here is simply: <b class="g">stay in the closeness, do not flinch from it.</b></p>
+
+      <h3>B &middot; The tour, her turf</h3>
+      <p>Let her be the expert. Be curious, not quizzing. Ask about <b>her</b>, not the town: her favorite spot and why, where she goes to think, a memory tied to a place. "Show me your version of this place." Walk a little closer than necessary. Match her pace.</p>
+
+      <h3>C &middot; The music (the spine)</h3>
+      <p>This is your home court; you are a pianist. When she plays a song, <b>be all the way in it</b>, phone away, react honestly. She lit up when you said one was the best yet; that was real. Ask: when did you start, what is this one about, which are you proudest of, what do you want to sing that you have not yet.</p>
+      <div class="say"><span class="tag">the realest move you have</span>"You sing, I play. This summer. I want to make something with you."</div>
+
+      <h3>D &middot; Food + a slower moment</h3>
+      <p>Somewhere to sit and drop a gear. Let her pick the spot; have an open-air, string-lights, live-music place in your pocket if she asks you to choose. Fewer words, more eye contact. Good place for one true thing out loud. If a storm pops up before 10, this is your indoor duck-in; it clears.</p>
+
+      <h3>E &middot; Wind-down + the kiss window</h3>
+      <p>Read the night. If there has been eye contact, closeness, easy laughing, the window is real. Best windows: the pause when she leans back from the makeup, a quiet beat after a song, and at her door. Close it slow and visible; give her the half-second to meet you. "Can I kiss you?" is not unsexy, it is the opposite. If it does not happen, a long hug + "I had the best time, I do not want to leave" is a complete, winning ending.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot"></span>The moves ladder<span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <p>Three rules: from real wanting (not "your turn"); an offer not a grab (slow, visible); her response sets the pace, instantly respected either way.</p>
+      <ul>
+        <li><b class="g">Eyes.</b> Hold her gaze a beat longer than comfortable. During the makeup, do not look away.</li>
+        <li><b class="g">Touch back.</b> Her hand, tuck her hair, a hand on her back as you walk. Small, warm, easy to receive.</li>
+        <li><b class="g">One true thing out loud.</b> Not the whole confession. One sentence (below).</li>
+        <li><b class="g">The kiss, if it is there.</b> Read, lean, give the half-second, or ask.</li>
+      </ul>
+      <div class="say"><span class="tag">one true thing, pick one</span>"I like being in your world." &nbsp;/&nbsp; "I have been looking forward to this all week." &nbsp;/&nbsp; "You are even better in person."</div>
+      <p>Reading is not your weak spot. Acting is. Tonight, <b class="g">act once, on purpose.</b></p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot"></span>If you freeze, or she names the feelings thing<span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <p>You do not owe her the word back. You owe her honesty.</p>
+      <div class="say rose"><span class="tag r">if she goes there</span>"I could not say it back on the phone, and it was not because there is nothing there. I did not want to say it just to match you. I would rather find out for real, with you."</div>
+      <div class="say rose"><span class="tag r">the clean version of the heavy thing, only if it comes up and you want to</span>"I get scared of how much I like you." Six words. That is the whole truth, and it is enough. Do not load the rest of the fear onto her tonight.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot"></span>Conversation deck (for the dips)<span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <ul>
+        <li><b class="g">The movie</b> she said you HAVE to see. Ask, let her gush, then: "okay, we are seeing it, you are taking me." Second-date seed planted.</li>
+        <li><b class="g">Her singing.</b> When did she start, who does she sing for, the one she is proudest of, what she would put out if she were brave.</li>
+        <li><b class="g">Her ideal first place.</b> Ask what that place means to her. It tells you who she is.</li>
+        <li><b class="g">The cute-things thing.</b> She lights up at small delightful stuff. Notice something with her; do not be above it.</li>
+        <li><b class="g">Make her feel interesting:</b> "What are you into that most people do not get?" / "What were you like at 16?" / "What do you want this summer to be?"</li>
+        <li><b class="g">About you, if she asks</b> (lead with her first): piano, what you build, the internship. Short and warm; let her pull more out of you.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot"></span>What not to do<span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <ul>
+        <li>Do not perform the plan. If you are running a checklist in your head, you are not with her. Drop it.</li>
+        <li>Do not force a confession to even the score. Find out together.</li>
+        <li>Do not push past her pace, ever. Her comfort is the whole game.</li>
+        <li>Do not bring up Friday's thing. You both agreed to park it. Tonight is a clean room.</li>
+        <li>Do not chase a late number. Her curfew sets the end. Early is not rejection.</li>
+        <li>Do not run theory in your head. The only thing that wins tonight is being present to the actual her. You are great at that. Lead with it.</li>
+        <li>Phone away. The only screen tonight is hers when she plays you a song.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot"></span>Contingencies<span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <ul>
+        <li><b class="g">Flight delayed:</b> text her early and honest. "Wheels delayed, I will be to you by X, cannot wait." The night flexes.</li>
+        <li><b class="g">Pop-up storm before 10:</b> 15-20% and it clears. Duck in for 20. Rain on a first date is romantic, not a ruin.</li>
+        <li><b class="g">She is running late:</b> relax, you have the whole night. Gas up or grab her a small something.</li>
+        <li><b class="g">Awkward silence:</b> normal. Name it lightly, smile, ask a question from the deck.</li>
+        <li><b class="g">You spiral mid-date:</b> three slow breaths, look at her face, ask her one thing about herself. The spiral cannot survive your attention on her.</li>
+        <li><b class="g">Early curfew:</b> the three-hour version is a complete, great night. Length is not the point.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="dot"></span>60-second reset (in the car, before you walk up)<span class="chev">&#9656;</span></summary>
+    <div class="body">
+      <p>Park. Phone down. Three slow breaths, longer on the exhale. Shoulders back. Then say it out loud:</p>
+      <div class="say">"She already likes me. I am not here to prove anything. I am here to be with her and have a blast. I get to enjoy this."</div>
+      <p>That is true. Now go.</p>
+    </div>
+  </details>
+
+  <div class="star">&#10022; &#10022; &#10022;</div>
+  <p class="big" style="text-align:center;color:var(--gold-soft)">You do justice to her by being present, generous, and brave enough to act once. That is the whole assignment. You are built for it.</p>
+
+  <div class="foot">
+    Verified 2026-06-04: sunset/dusk via sunrise-sunset.org; weather via NWS (api.weather.gov); landing per your ticket (check your airline app for live status). Your private logistics notes live separately.
+  </div>
+</div>
+</body>
+</html>
