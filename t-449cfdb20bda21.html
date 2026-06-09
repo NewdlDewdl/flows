@@ -10,7 +10,6 @@
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     -webkit-text-size-adjust:100%;line-height:1.55}
   .wrap{max-width:620px;margin:0 auto;padding:0 0 64px}
-  .pad{padding:0 18px}
 
   /* sunset hero, pure CSS */
   .hero{position:relative;overflow:hidden;border-radius:0 0 22px 22px;
@@ -24,7 +23,7 @@
     background:linear-gradient(180deg,rgba(255,210,140,.55),rgba(255,210,140,0));filter:blur(2px)}
   .hero h1{position:relative;font-family:Georgia,"Times New Roman",serif;font-weight:600;
     font-size:34px;letter-spacing:.4px;margin:2px 0 4px;color:#fff;text-shadow:0 1px 14px rgba(40,12,40,.5)}
-  .hero .lede{position:relative;font-size:15.5px;color:#fdeede;margin:0 0 14px;max-width:430px;
+  .hero .lede{position:relative;font-size:15.5px;color:#fdeede;margin:0 0 14px;max-width:450px;
     text-shadow:0 1px 8px rgba(40,12,40,.45)}
   .facts{position:relative;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
   .fact{font-size:12px;letter-spacing:.2px;color:#fff;background:rgba(20,10,28,.34);
@@ -50,6 +49,7 @@
   ul{margin:7px 0;padding-left:20px}
   li{margin:6px 0;font-size:15px;color:#e3def0}
   .no{color:#ff9a9a}
+  .win{color:#9ff0c4}
 
   /* timeline */
   .tl{position:relative;margin:8px 0 2px;padding-left:8px}
@@ -62,6 +62,17 @@
   .tl .time{font-size:12.5px;font-weight:700;color:#ffd07a;letter-spacing:.4px}
   .tl .what{font-size:14.5px;color:#e8e3f3;margin-top:1px}
   .tl .what b{color:#fff}
+  .tl .move{display:block;margin-top:4px;font-size:13.5px;color:#ffc7d6}
+  .tl .move b{color:#ffd9e3}
+
+  /* read-her cues */
+  .cue{display:flex;gap:10px;align-items:flex-start;margin:9px 0;font-size:14.5px;color:#e3def0}
+  .cue .k{flex:0 0 auto;font-size:10.5px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+    border-radius:6px;padding:4px 7px;margin-top:1px;width:48px;text-align:center;color:#140a0a}
+  .cue.g .k{background:linear-gradient(90deg,#74e0a6,#43c98b)}
+  .cue.y .k{background:linear-gradient(90deg,#ffd07a,#f4ad3e)}
+  .cue.r .k{background:linear-gradient(90deg,#ff9a9a,#f06b6b)}
+  .cue b{color:#fff}
 
   /* soundtrack */
   .track{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-top:1px solid #221d31}
@@ -82,6 +93,12 @@
   .call .num{color:#ffb38f;font-size:16px;font-weight:700;letter-spacing:.3px}
   .call .meta{color:#9c96b0;font-size:13px}
 
+  table.run{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:13.5px}
+  table.run th,table.run td{text-align:left;padding:6px 6px;border-bottom:1px solid #221d31;vertical-align:top}
+  table.run th{color:#bda9ff;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+  table.run td b{color:#fff}
+  table.run .cl{color:#ffd07a;font-weight:700;white-space:nowrap}
+
   .ck-h{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#bda9ff;font-weight:800;margin:14px 0 6px}
   .ck-note{font-size:13px;color:#9c96b0;margin:6px 0 2px}
   .ck{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#e3def0;margin:7px 0;cursor:pointer}
@@ -92,6 +109,7 @@
     border:solid #0c0a16;border-width:0 2px 2px 0;transform:rotate(45deg)}
   .ck b{color:#fff}
 
+  .kiss{background:linear-gradient(135deg,#241031,#3a1540);border:1px solid #6e2a57}
   .seattle{background:linear-gradient(135deg,#141a2e,#1b1430);border:1px solid #2f3a55;
     border-radius:15px;padding:16px;margin:14px 18px 0}
   .line{margin:18px 18px 0;padding:15px 16px;
@@ -108,36 +126,37 @@
   <div class="hero">
     <div class="sun"></div><div class="shine"></div><div class="horizon"></div>
     <h1>Tonight</h1>
-    <p class="lede">She lands at 3. You see her by the water tonight. A reunion, not a production. Every piece below is already a yes.</p>
+    <p class="lede">She's home, and she set the time herself: <b>"hey come by my house at 7."</b> You take her to the water at dusk. She already chose you, this is a reunion, not an audition. Your only job: be all the way there, read her, and don't fumble the moment.</p>
     <div class="facts">
       <span class="fact">Tue Jun 9</span>
+      <span class="fact">7 PM &middot; her place</span>
       <span class="fact">clear, 88&deg; at sunset</span>
       <span class="fact">sun 8:37 &middot; dusk 9:04</span>
-      <span class="fact">her curfew ~10:30</span>
+      <span class="fact">curfew ~10:30</span>
     </div>
   </div>
 
   <div class="card">
-    <span class="tag t-go">She's in</span>
-    <h2>Curfew handled, she wants tonight</h2>
-    <p>You asked; she said <b>"ooooooo okayy i will hehe,"</b> <b>"i missed you too,"</b> and <b>"no i want to see you tmr."</b> She'll confirm ~<b>10, maybe 10:30</b> with her parents after she lands, and text when you can come by.</p>
-    <p class="meta">She's off a 3 PM flight, so let her energy size the night: lit up, go full; wiped, keep it warm and short. Both are wins.</p>
+    <span class="tag t-go">The one rule</span>
+    <h2>Zero pressure is the whole strategy</h2>
+    <p>She told you <b>"i missed you too,"</b> <b>"no i want to see you tmr,"</b> and <b>"ooooooo okayy i will hehe"</b> when you asked her to push curfew. She's the one who floated the hand-hold (<b>"j imagine me holding ur hand or smth so ur not tweaking"</b>). On the lake day you became each other's number one. So tonight is not about winning her; it's about <b>not getting in your own way.</b></p>
+    <p>The single thing that can kill tonight is <b>pressure</b>, rushing it, performing, scorekeeping, needing a result. The single thing that builds it is <b>ease</b>: you relaxed, present, in no hurry, letting it be slow. Counterintuitive but true, the move that most raises the odds of her leaning in is <b>you clearly not needing her to.</b></p>
+    <p class="meta">You already burned off the morning. Shower it off, leave it at the door, she gets present-you. Walk in calm and she co-regulates to your calm.</p>
   </div>
 
   <div class="card">
-    <span class="tag t-go">Today, from noon</span>
-    <h2>The prep, in order</h2>
-    <ul>
-      <li><b>Now:</b> text her light, "land safe, excited for tonight." Then let her come to you on timing; she's telling you when to come by.</li>
-      <li><b>Jasmine: DONE.</b> Vivek Flowers Plano (<a href="tel:2147708509" style="color:#ffb38f">214-770-8509</a>) has your gajra held. Grab it ~5 to 6 PM so it's fresh; keep it cold.</li>
-      <li><b>The sweet (she showed you this):</b> the <b>Dubai chocolate strawberry cup</b> at <b>PappaRoti</b> Frisco (9188 Prestmont Pl), <a href="tel:6303401953" style="color:#ffb38f">630-340-1953</a>, open til 10. <b>Call to confirm, then grab it fresh near pickup (~6:30)</b> and keep it cold; it's the exact thing she pointed out, and you try it together. Backup: <b>Tom Thumb</b> Frisco choc-dipped (grab) or <b>Edible Plano</b> <a href="tel:9729856400" style="color:#ffb38f">972-985-6400</a>. Central Market was out today.</li>
-      <li><b>Camera (the keepsake):</b> grab an <b>Instax</b> or a cheap <b>disposable</b> (Target/CVS) on the run. <b>One photo of you two in the golden light</b> is the thing she keeps, and it answers last night's "this needs a soundtrack." No kite; it fights the dusk vibe.</li>
-      <li><b>Thai (the callback):</b> grab <b>Too Thai</b> when convenient on the route, pineapple fried rice + drunken noodles; cold-on-the-grass is authentic. <b>Thai in Town</b> (Little Elm) is the on-route fallback.</li>
-      <li><b>Car + bag:</b> gas, clean it out, AC on. Cooler + ice, the <b>picnic basket</b> (board, knife, mini glasses), a <b>soft blanket to lie back on layered over a waterproof-backed one</b> (plush on top, dry against the damp grass), charged speaker, napkins, bug spray, parking card. Queue the playlist.</li>
-      <li><b>The run, in order:</b> ~5 PM jasmine at Vivek (Plano); coconut water + ice + debloat produce at any grocery (Tom Thumb Frisco works); then the <b>Dubai strawberry fresh from PappaRoti (~6:30, near her)</b> right before pickup. Keep jasmine and the strawberry cold.</li>
-      <li><b>You:</b> shower, clothes you feel good in, phone charged. Reread this once.</li>
-      <li><b>~3 PM she lands</b> (don't crowd it). When she gives the word, ~7 pickup.</li>
-    </ul>
+    <span class="tag t-amber">Run order</span>
+    <h2>The day, so nothing is rushed</h2>
+    <p class="meta">Target FIRST so the tea has time to chill; perishables (jasmine, strawberry) LAST so they're fresh in the AC-car handoff. All hours verified today.</p>
+    <table class="run">
+      <tr><th>Stop</th><th>Closes</th><th>Get</th></tr>
+      <tr><td><b>Target</b> <span class="meta">(do first)</span></td><td class="cl">~10p</td><td>blanket, speaker, flameless tea lights, butterfly pea tea, lime, honey, camera, bug spray</td></tr>
+      <tr><td><b>Home</b></td><td class="cl">n/a</td><td>steep + chill the tea, charge speaker + chargers, pack cooler, shower</td></tr>
+      <tr><td><b>Too Thai</b> <span class="meta">Carrollton</span></td><td class="cl">9:30p<br><span class="meta">order 8:40p</span></td><td>Pineapple Fried Rice + Pad See Ew</td></tr>
+      <tr><td><b>Vivek Flowers</b> <span class="meta">Plano</span></td><td class="cl">9p</td><td>jasmine gajra (held), keep cold</td></tr>
+      <tr><td><b>Lela's Sweets</b> <span class="meta">Plano</span></td><td class="cl">11p</td><td>Dubai strawberry cup, fresh ~6:30, keep cold</td></tr>
+    </table>
+    <p class="meta">Only real constraint: grab jasmine + strawberry late and cold so they don't wilt or weep. Everything closes well after pickup, so don't rush the day.</p>
   </div>
 
   <div class="card">
@@ -146,157 +165,205 @@
     <p class="ck-note"><b>Have:</b> cooler, ice packs (freezing), basket + board + knife + mini glasses, tarp, golden kiwis, coconut water.</p>
 
     <p class="ck-h">Buy (one Target run)</p>
-    <label class="ck"><input type="checkbox"> Soft sherpa/faux-fur <b>blanket</b> (~$35), over the tarp</label>
+    <label class="ck"><input type="checkbox"> Soft sherpa/faux-fur <b>blanket</b> (~$35) to lie back on, over the tarp</label>
     <label class="ck"><input type="checkbox"> <b>Speaker</b> (JBL Clip 5 ~$70-80), charge + pair before leaving</label>
-    <label class="ck"><input type="checkbox"> <b>Flameless</b> LED tea lights (no open flame)</label>
-    <label class="ck"><input type="checkbox"> <b>Butterfly pea</b> tea bags + a lime (or ask the Thai spot)</label>
+    <label class="ck"><input type="checkbox"> <b>Flameless</b> LED tea lights (no open flame, park + breeze)</label>
+    <label class="ck"><input type="checkbox"> <b>Butterfly pea</b> tea bags + a lime + honey (Target has the tea)</label>
     <label class="ck"><input type="checkbox"> <b>Camera</b> (Instax or disposable)</label>
-    <label class="ck"><input type="checkbox"> <b>Bug spray</b></label>
+    <label class="ck"><input type="checkbox"> <b>Bug spray</b> (mosquitoes at the water at dusk)</label>
 
     <p class="ck-h">Do before leaving</p>
+    <label class="ck"><input type="checkbox"> Steep + <b>chill the butterfly pea tea</b> (bring it BLUE, no lime yet)</label>
     <label class="ck"><input type="checkbox"> Charge the chargers + your phone</label>
     <label class="ck"><input type="checkbox"> Confirm the ice packs are frozen</label>
     <label class="ck"><input type="checkbox"> Test the speaker, queue her playlist</label>
-    <label class="ck"><input type="checkbox"> Debloat: coffee/tea + a walk, early</label>
     <label class="ck"><input type="checkbox"> Shower, dress, then load the cooler</label>
 
-    <p class="ck-h">Pickups (in order)</p>
-    <label class="ck"><input type="checkbox"> <b>Jasmine</b>, Vivek (~5 PM, held)</label>
-    <label class="ck"><input type="checkbox"> <b>Dubai strawberry</b>, PappaRoti, fresh ~6:30 (call first)</label>
-    <label class="ck"><input type="checkbox"> <b>Too Thai</b>, pineapple fried rice + drunken noodles</label>
+    <p class="ck-h">Pickups (in order, keep cold)</p>
+    <label class="ck"><input type="checkbox"> <b>Too Thai</b>: Pineapple Fried Rice + <b>Pad See Ew</b> (no basil)</label>
+    <label class="ck"><input type="checkbox"> <b>Jasmine</b>, Vivek (~5 to 6 PM, held)</label>
+    <label class="ck"><input type="checkbox"> <b>Dubai strawberry</b>, Lela's, fresh ~6:30</label>
 
     <p class="ck-h">Pack: cooler vs basket</p>
     <p class="ck-note"><b>Cooler (cold):</b> jasmine, strawberry, butterfly pea, coconut water, kiwis, glasses wrapped in a napkin. <b>Basket (dry):</b> board, knife, napkins, tea lights, camera. Transfer the cold things to the basket at the walk-in.</p>
   </div>
 
   <div class="card">
-    <span class="tag t-amber">The shape</span>
-    <h2>How tonight flows</h2>
+    <span class="tag t-coral">The arc</span>
+    <h2>How tonight escalates</h2>
+    <p class="meta">Touch moves up one small rung at a time. Each rung is an <b>offer</b> she can take or leave, never a grab. You go to the next rung only when she took the last one warmly. That is the entire method.</p>
     <div class="tl">
       <div class="row go"><div class="dot"></div>
-        <div class="time">~7:00 PM &middot; pick her up</div>
-        <div class="what">From her place, you drive. <b>Give the jasmine in the cool car</b> so the heat doesn't wilt it. Cue the playlist.</div></div>
+        <div class="time">7:00 PM &middot; her place (she set the time)</div>
+        <div class="what">You drive (she hates to), AC on, her music already playing. Hand her the <b>jasmine</b> in the cool car and a cold coconut water for the flight legs.
+        <span class="move"><b>Rung 1:</b> the jasmine handoff puts your hands together. That's first contact, easy and warm.</span></div></div>
+
       <div class="row"><div class="dot"></div>
-        <div class="time">~7:40 PM &middot; Little Elm, your bench</div>
-        <div class="what">701 W Eldorado Pkwy, the exact spot you dried off. Walk in, phones away. <b>Take her hand on the walk.</b></div></div>
+        <div class="time">~7:40 PM &middot; the walk in</div>
+        <div class="what">701 W Eldorado, the bench you dried off at. You carry the basket; phones go away.
+        <span class="move"><b>Rung 2:</b> over the uneven grass, reach slow and <b>take her hand</b>. She's the one who brought it up ("j imagine me holding ur hand... so ur not tweaking"), so it's already hers. Don't overthink it into a freeze.</span></div></div>
+
       <div class="row"><div class="dot"></div>
-        <div class="time">7:45&ndash;8:37 PM &middot; the grass</div>
-        <div class="what">Food on a blanket, soundtrack low, side by side. The easy, no-small-talk hour you're both good at. It's 88&deg; and cooling; cold drinks help. <b>Take one photo of you two in the good light</b>, then put the camera away.</div></div>
+        <div class="time">7:45 PM &middot; blanket down</div>
+        <div class="what">Soft blanket over the tarp, soundtrack low.
+        <span class="move"><b>Rung 3, the big one:</b> sit <b>hip-to-hip, both facing the water, backs to the path</b>. Not across from each other. Now you're a unit looking out, shoulders and thighs touching, and the walkers are behind you. This one choice does more than anything else on this card.</span></div></div>
+
+      <div class="row"><div class="dot"></div>
+        <div class="time">7:50 PM &middot; the ritual</div>
+        <div class="what">Slice the golden kiwi on the board. Pour the blue drink into the mini glasses, <b>squeeze the lime so it turns purple in front of her</b> (the shared "whoa"), a small toast, then Thai by hand like the lake day.
+        <span class="move"><b>Rung 4:</b> feed her a bite off your hand. Eating by hand together is messy, close, and already your thing.</span></div></div>
+
+      <div class="row"><div class="dot"></div>
+        <div class="time">~8:15 PM &middot; the jasmine</div>
+        <div class="what">If she's warm and close: "can i put it in your hair?"
+        <span class="move"><b>Rung 5:</b> tucking the gajra in puts your hand in her hair and your face inches from hers. This is near-kiss range. Linger half a second, read her, don't force it.</span></div></div>
+
+      <div class="row"><div class="dot"></div>
+        <div class="time">8:37 PM &middot; sunset, it cools</div>
+        <div class="what">Golden light. Take <b>one photo of you two</b>, then camera away. As it cools, "you cold? c'mere."
+        <span class="move"><b>Rung 6:</b> the temperature drop is your built-in reason. Arm around her, or the blanket around both of you. Say it out loud, simple, to her face: <b>"i missed you."</b></span></div></div>
+
       <div class="row peak"><div class="dot"></div>
-        <div class="time">8:37 PM &middot; sunset</div>
-        <div class="what"><b>"i missed you," out loud, to her face.</b> A kiss only if her energy is clearly up. This is the heart of it.</div></div>
+        <div class="time">~8:45 PM &middot; blue hour</div>
+        <div class="what">Crowds thin, light goes soft and blue, you're wrapped close.
+        <span class="move"><b>Rung 7, the kiss window.</b> See the next card for exactly how to read it and how to go. Then the <b>Dubai strawberry</b>, one cup two spoons, at dusk.</span></div></div>
+
       <div class="row"><div class="dot"></div>
-        <div class="time">~9:00 PM &middot; park closes</div>
-        <div class="what">Drift out before 9 (weekday close). Don't end the night here; she's good til ~10:30.</div></div>
+        <div class="time">~9:00 PM &middot; ease out</div>
+        <div class="what">Park closes ~9 on a weekday. Drift out <b>before</b> you have to, on a high, not when a ranger moves you.
+        <span class="move">Leaving with time to spare reads as "I've got you," not "the night's over." She's good til ~10:30.</span></div></div>
+
       <div class="row"><div class="dot"></div>
-        <div class="time">9:00&ndash;10:30 PM &middot; second beat</div>
-        <div class="what">Slow drive, windows cracked, her songs. Something cold if she wants it. Home by curfew, no scorekeeping.</div></div>
+        <div class="time">~9:15 PM &middot; the car, the private capsule</div>
+        <div class="what">If the kiss hasn't happened, <b>this is where it usually does</b>. Slow drive, windows cracked, her songs. At her place, <b>don't just drop and wave</b>: park, turn to her, hold the look, "i had the best night." Let the quiet sit. That pause is the moment.
+        <span class="move">Home by curfew, no scorekeeping. End it one beat early and she's already thinking about next time.</span></div></div>
     </div>
-    <p class="meta">Fewer people if you want it: <b>Stewart Creek Park (The Colony)</b>, same lake, ~23 min from her, quiet, open to ~9. Or keep your bench for the meaning and let the car be the private part. The lake day was this same public beach with people around, and it was perfect; you make the bubble.</p>
+    <p class="meta">Quieter option if the beach is packed: <b>Stewart Creek Park (The Colony)</b>, same lake, ~23 min, open to ~9. Or keep your bench for the meaning and let the car be the private part. The lake day was this same public beach with people around, and it was perfect: you make the bubble.</p>
+  </div>
+
+  <div class="card kiss">
+    <span class="tag t-rose">Rung 7</span>
+    <h2>The kiss, so you don't fumble it</h2>
+    <p>Fumbling the moment is the only real failure here, and it comes from <b>rushing</b> or <b>freezing</b>. Neither happens if you slow down and read her first.</p>
+    <p class="big">Read it (these mean she's there):</p>
+    <ul>
+      <li>She holds eye contact and doesn't look away first.</li>
+      <li>She's slow to let go of your hand, or finds reasons to touch you.</li>
+      <li>She turns her <b>body</b> toward you, leans in, stays in your space.</li>
+      <li>The talking slows and the silence feels easy, not awkward.</li>
+      <li>Her eyes flick to your mouth. That one is the tell.</li>
+    </ul>
+    <p class="big">Then go, slow:</p>
+    <ul>
+      <li>Stop talking. Hold the look a beat longer than normal.</li>
+      <li>Either <b>say it</b>, low: <b>"can i kiss you?"</b> or <b>"i really want to kiss you right now."</b> Asking is not weak; it's confident and it makes her feel safe, which makes the yes easy.</li>
+      <li>Or <b>telegraph it</b>: brush her hair back, move in <b>halfway</b>, and let her close the last bit. Letting her cover the final inch means she chose it.</li>
+      <li>Start <b>soft and brief</b>. Pull back a touch, read her, smile. If she comes back in, you're good. Don't narrate it, don't apologize, don't over-talk after.</li>
+    </ul>
+    <p class="meta">No clear green light? Don't force a kiss. The hand, the jasmine in her hair, "i missed you," one cup two spoons, those already made tonight land. There is always the car.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag t-amber">Read her</span>
+    <h2>Green, yellow, red</h2>
+    <p class="meta">This is the actual odds-maximizer: escalate on green, ease off on yellow, stop warm on red. Wanted moves succeed; pushed ones end things. Reading her IS the skill.</p>
+    <div class="cue g"><span class="k">Green</span><div>Leaning in, touching you back, sustained eye contact, mirroring you, body turned to you, slow to release your hand, laughing easy. <b>Go to the next rung.</b></div></div>
+    <div class="cue y"><span class="k">Yellow</span><div>Pulling back a little, shorter replies, glancing at her phone or the time, arms crossing, going quiet in a flat way. <b>Don't push. Drop back a rung, re-warm, give her space.</b> Often just tired from the flight, not a no.</div></div>
+    <div class="cue r"><span class="k">Red</span><div>A "no," stiffening, turning away, moving your hand off. <b>Stop instantly, zero sulk, stay warm</b> like nothing's wrong. That composure is attractive and it protects every future night.</div></div>
+  </div>
+
+  <div class="card">
+    <span class="tag t-rose">The gift</span>
+    <h2>Jasmine + the premium strawberry</h2>
+    <p>Two of her loves, same-day, modest and specific. Don't over-buy; with her, more reads as trying too hard. Keep both cold; the jasmine goes over first thing in the AC car.</p>
+
+    <p style="margin:10px 0 4px"><b>Jasmine: SECURED.</b> Vivek Flowers (Plano) has your <b>gajra</b> held, <a href="tel:2147708509" style="color:#ffb38f">214-770-8509</a>, 3829 W Spring Creek Pkwy #110, open to 9. Grab it <b>~5 to 6 PM</b> so it's freshest, keep it <b>cold</b> (fridge or cooler, not on ice) til the handoff.</p>
+    <p class="meta">Insurance only if the strand looks browned: Srishti (Plano) 469-642-9097, or a potted mogra plant from Calloway's. Vivek confirmed fresh, you're set.</p>
+
+    <a class="call" href="tel:9453246315">
+      <b>The premium one (switch to this)</b> &middot; <span class="num">Lela's Sweets, Plano 945-324-6315</span><br>
+      <span class="meta">230 W Parker Rd Ste 180A, open to 11. Their <b>Dubai Chocolate Strawberry Cup</b> is strawberries layered with pistachio cream, thick Dubai chocolate, kataifi flakes. She's had the <b>PappaRoti</b> one many times with her little brother, so it's a family memory, not a new thing. Lela's is more premium and new to her, that makes it a real first you share. Grab fresh ~6:30, keep cold, one cup two spoons.</span>
+    </a>
+    <p class="meta">Backups only: <b>PappaRoti</b> Frisco (the one she's had) <a href="tel:6303401953" style="color:#ffb38f">630-340-1953</a>, closest to the lake; or <b>Bigdash</b> (Frisco/Irving).</p>
+
+    <p style="margin-top:10px"><b>Giving the jasmine:</b> plain, hand it over, "they're jasmine, you said they're your favorite." Intimate (the better move if she's close): "can i put it in your hair?" then tuck it in. That's Rung 5.</p>
+    <p class="no">Not tonight: lotus (special-order, save it for the girlfriend-ask).</p>
   </div>
 
   <div class="card">
     <span class="tag t-coral">Food + drink</span>
     <h2>Thai on the grass, like last time</h2>
-    <p>Lake-day dinner was <b>Too Thai, eaten by hand on the grass</b> (no utensils; she poured water over your hands after). Recreate it exactly: <b>the same two dishes, pineapple fried rice + drunken noodles.</b> The food isn't the point; the rhyme is.</p>
+    <p>Lake-day dinner was <b>Too Thai, eaten by hand on the grass</b> (no utensils; she poured water over your hands after). The rhyme is the point, not the food, so cold-ish on the grass is authentic.</p>
 
     <a class="call" href="tel:4698926313">
       <b>Too Thai Street Eats</b> &middot; <span class="num">469-892-6313</span><br>
-      <span class="meta">2540 Old Denton Rd, Carrollton &middot; the exact spot, the one she could only get into with you. It was leftovers last time, so cold-ish is authentic: grab it after work, "got us Too Thai again." Both dishes are on the menu.</span>
+      <span class="meta">2540 Old Denton Rd, Carrollton &middot; the spot she could only get into with you. Order <b>Pineapple Fried Rice + Pad See Ew</b>. Both basil-free, verified. To 9:30p, online order to 8:40p.</span>
     </a>
-
+    <p class="no"><b>She hates basil.</b> Their <b>Drunken Noodles (Pad Kee Mow) has basil</b>, so skip it, and don't ask them to strip it (basil is the dish). <b>Pad See Ew is the swap</b>: same wide flat noodle, no basil. Also avoid Basil Fried Rice and Mama Pad Kee Mow Ta Ley.</p>
     <a class="call" href="https://maps.apple.com/?q=Thai+in+Town+211+E+Eldorado+Pkwy+Little+Elm">
       <b>Thai in Town</b> &middot; <span class="num">on-route fallback</span><br>
-      <span class="meta">211 E Eldorado Pkwy, Little Elm &middot; to 9:30p, minutes from the bench. Pineapple fried rice confirmed; confirm drunken noodles. Use if Carrollton is too far.</span>
+      <span class="meta">211 E Eldorado Pkwy, Little Elm &middot; to 9:30p, minutes from the bench. Order Pad See Ew + pineapple fried rice. Use if Carrollton is too far.</span>
     </a>
 
-    <p style="margin-top:10px"><b>The drink (for your mini glasses):</b> <b>butterfly pea lemonade</b> (Thai "nam anchan"), it pours deep blue and turns purple-pink the second you squeeze lime in, a live color-change in clear glasses, and it's caffeine-free so it won't wire her before curfew. Ask the Thai spot for it (or hibiscus "nam krajiab," deep red), or steep butterfly pea tea ahead and do the color-change at the blanket. Add <b>coconut water</b> (she'll be dehydrated from flying); Thai iced tea comes with the order. Sweet and fruity over fizzy, that's her lean.</p>
-    <p><b>The little ritual (the basket):</b> blanket down, slice the <b>golden kiwi</b> on the board, pour the blue drink and squeeze the lime so it changes color, a small toast, then the Thai by hand. Wrap the glasses in a napkin for the cooler-to-basket carry. The Dubai strawberry is for sunset.</p>
-    <p class="no">Skip the booze and cigs, and that includes <b>Thai spirits like Mekhong / SangSom</b> (right pairing, wrong night): you're driving, handing a 20-year-old alcohol is a crime on you, the park bans it, and she walks into her parents' by curfew. Save Mekhong for a date after Oct 27 when you're not driving. Tonight runs on the real thing, not liquid courage.</p>
+    <p style="margin-top:10px"><b>The drink (your mini glasses):</b> <b>butterfly pea lemonade</b> ("nam anchan"), pours deep blue and turns purple the second you squeeze lime, a live color-change, and caffeine-free so it won't wire her before curfew. <b>Target has the tea</b>: steep + chill it at home, bring it BLUE, do the lime at the blanket. Add <b>coconut water</b> for the flight dehydration. Sweet over fizzy, that's her lean.</p>
+    <p class="no">No booze or cigs, and that includes <b>Thai spirits (Mekhong / SangSom)</b>: you're driving, handing a 20-year-old alcohol is a crime on you, the park bans it, and she walks into strict parents by curfew. Save Mekhong for a date after Oct 27 when you're not driving. Tonight runs on the real thing, not liquid courage.</p>
   </div>
 
   <div class="card">
     <span class="tag t-lav">The soundtrack</span>
-    <h2>You said "this needs a soundtrack." So here's tonight's.</h2>
+    <h2>You said "this needs a soundtrack." Here's tonight's.</h2>
     <p class="meta">All her songs, off the playlist she sent. One small speaker, cued to the moment. Don't announce it; just have the right thing playing.</p>
 
     <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
       <div><div class="when">The drive there</div>
-      <div class="song">Her <b>Weeknd "sped up 3am"</b> edits. Slip in <b>The Neighbourhood, "Nervous (sped up)":</b> literally a song about being nervous to see someone. Your wink.</div></div></div>
+      <div class="song">Her <b>Weeknd "sped up 3am"</b> edits. Slip in <b>The Neighbourhood, "Nervous (sped up)"</b>: a song about being nervous to see someone. Your wink.</div></div></div>
 
     <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
       <div><div class="when">Golden hour, the grass</div>
-      <div class="song">The dreamy ones: <b>"Reflections"</b> (Neighbourhood), <b>"The Color Violet"</b> (Tory Lanez), <b>"Moonlight"</b> (Dhruv).</div></div></div>
+      <div class="song">She literally called the vibe last night ("this photo and listening to the neighborhood is acc the vibes"). Lead with <b>"Reflections"</b> (Neighbourhood), then <b>"The Color Violet"</b> (Tory Lanez), <b>"Moonlight"</b> (Dhruv).</div></div></div>
 
     <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
-      <div><div class="when">Sunset, 8:37</div>
-      <div class="song">One slow tender one while you say it: <b>"Moonlight"</b> or <b>"Passionfruit"</b> (Drake).</div></div></div>
+      <div><div class="when">Sunset + the kiss window</div>
+      <div class="song">One slow tender one: <b>"Moonlight"</b> or <b>"Passionfruit"</b> (Drake). Low, not loud.</div></div></div>
 
     <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
       <div><div class="when">Blue hour, close</div>
-      <div class="song">A song from <b>her</b> world off the list: Anirudh's <b>"Idhazhin Oram,"</b> Sid Sriram's <b>"Yennai Maatrum Kadhale,"</b> or her Telugu <b>"Baitikochi Chuste."</b> The jasmine move, in audio.</div></div></div>
+      <div class="song">A song from <b>her</b> world: Anirudh's <b>"Idhazhin Oram,"</b> Sid Sriram's <b>"Yennai Maatrum Kadhale,"</b> or Telugu <b>"Baitikochi Chuste."</b> The jasmine move, in audio.</div></div></div>
 
     <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
       <div><div class="when">The drive home</div>
       <div class="song">Slow and warm: <b>"Passionfruit," "Koi Si," "Kinni Kinni"</b> (Diljit), <b>"Mona Lisa."</b></div></div></div>
   </div>
 
-  <div class="card">
-    <span class="tag t-go">The one non-negotiable</span>
-    <h2>Take her hand</h2>
-    <p class="big">You said "i want to hold your hand when we walk." She said "me too."</p>
-    <p>That is your guaranteed escalation: guaranteed because she already said yes, not because you forced it. When you walk in, reach slow, take her hand. Don't overthink it into a freeze. That's the rep. Everything else is bonus.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag t-teal">The ladder</span>
-    <h2>Offer, don't grab</h2>
-    <ul>
-      <li><b>Presence.</b> Phone away. Look at her. Let the week-apart show.</li>
-      <li><b>The hand.</b> Pre-greenlit. Cash it.</li>
-      <li><b>One true thing out loud:</b> "i missed you," to her face. Your real edge. Short and true.</li>
-      <li><b>A kiss, only if it's there.</b> Telegraph it (lean in, pause, let her close it) or ask "can i kiss you." Her <i>enthusiasm</i> is the green light. If it isn't clearly there, the hand and "i missed you" already made tonight a win.</li>
-    </ul>
-    <p class="meta">Quiet / stiff / "maybe later" = stop, stay warm, no sigh. Not sure = no for now.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag t-rose">The gift</span>
-    <h2>Jasmine + the Dubai strawberry she showed you</h2>
-    <p>Two of her loves, same-day, near your office. Modest and specific. Don't over-buy. Keep both cold; hand the jasmine over first thing in the AC car.</p>
-
-    <p style="margin:10px 0 4px"><b>Jasmine: SECURED.</b> Vivek Flowers (Plano) has your <b>gajra</b> set aside and ready, <a href="tel:2147708509" style="color:#ffb38f">214-770-8509</a>, 3829 W Spring Creek Pkwy #110. Grab it on the <b>later side (~5 to 6 PM)</b> so it's freshest, and keep it <b>cold</b> (fridge or a cooler, not sitting on ice) until the handoff in the AC car.</p>
-    <p class="meta">Insurance only, if the strand looks browned on arrival: Srishti (Plano) 469-642-9097, or a potted <b>mogra</b> plant from Calloway's. Vivek confirmed fresh, so you're set.</p>
-
-    <a class="call" href="tel:6303401953">
-      <b>The sweet she showed you</b> &middot; <span class="num">PappaRoti Frisco 630-340-1953</span><br>
-      <span class="meta"><b>Dubai chocolate strawberry cup</b>, 9188 Prestmont Pl, open til 10. The exact thing she pointed out, so you try it together (one cup, two spoons). Call to confirm, grab it fresh ~6:30, keep it cold. Backup: <b>Tom Thumb</b> Frisco choc-dipped or <b>Edible Plano</b> 972-985-6400. Central Market was out today.</span>
-    </a>
-
-    <p style="margin-top:10px"><b>Giving the jasmine:</b> it's a strand/gajra, not a bouquet. Plain: hand it over, "they're jasmine, you said they're your favorite." Intimate (ask first): "can i put it in your hair?" then tuck it in.</p>
-    <p class="no">Not tonight: lotus (special-order, save it for the ask).</p>
-  </div>
-
   <div class="seattle">
     <span class="tag t-lav">The callback</span>
     <h2>The Seattle bit (one quiet line)</h2>
-    <p>Last night you two built a whole daydream: a year in Seattle, you make the coffee, she complains about the rain. Sometime in a comfortable silence by the water, drop it back, light:</p>
+    <p>Last night you built a whole daydream: a year in Seattle, you make the coffee, she complains about the rain. In a comfortable silence by the water, drop it back, light:</p>
     <p class="quote">"ok so when we do our Seattle year, i'm on coffee. you just complain about the rain."</p>
-    <p class="meta">It's a coded "us, next year," said as a joke so there's zero pressure. Not an opener, not a speech; a soft aside when it's quiet. It continues a thread that's twelve hours old, which is why it lands.</p>
+    <p class="meta">It's a coded "us, next year," said as a joke so there's zero pressure. Not a speech, a soft aside when it's quiet. It continues a thread that's twelve hours old, which is why it lands.</p>
   </div>
 
   <div class="card">
     <span class="tag t-mute">Hold the line</span>
-    <h2>Three don'ts</h2>
+    <h2>The don'ts</h2>
     <ul>
-      <li><span class="no">No "i love you."</span> She paced that word. "i missed you" is the move. Be unbothered by her brake.</li>
+      <li><span class="no">No "i love you."</span> She paced that word. <b>"i missed you"</b> is the move. Be unbothered by her brake.</li>
       <li><span class="no">Not the girlfriend-ask tonight.</span> She's jet-lagged. Save it for a planned date with the lotus.</li>
-      <li><span class="no">No lobbying, no checklist, no escalating to calm your head.</span> One rung, already greenlit.</li>
+      <li><span class="no">No heavy talk.</span> Nothing about the conduct case, your dad, or family tonight. Keep it light, present, hers.</li>
+      <li><span class="no">No pressure, no lobbying, no scorekeeping.</span> Don't escalate to calm your own head. One warm rung at a time, on green only.</li>
+      <li><span class="no">Don't keep her past curfew.</span> Beating it is a gift; blowing it costs you the next three dates.</li>
     </ul>
   </div>
 
+  <div class="card">
+    <span class="tag t-go">If it stays at the hand</span>
+    <h2>That's still a win, and here's why</h2>
+    <p>If there's no kiss tonight, you did <b>not</b> lose. A jet-lagged girl, a slow warm night by the water, jasmine in her hair, "i missed you," <b>not</b> pushed for more, that is the exact night that makes her want the next one and makes the kiss easy then.</p>
+    <p class="win">Pushing for a result you don't see a green light for is the one thing that could cost you everything you've built. Patience reads as confidence. Confidence is the thing she's actually attracted to.</p>
+  </div>
+
   <div class="line">
-    <b>The one line:</b> Jasmine in the car, take her to the water, phone away, look at her, take her hand when you walk, say "i missed you" out loud. That's the whole night, and every piece is already a yes.
+    <b>The one line:</b> Drive her there, jasmine in the cool car, phones away, sit hip-to-hip facing the water, feed her by hand, jasmine in her hair, "i missed you" to her face, then read her and move only on green. Every piece is already a yes.
   </div>
 
   <p class="foot">private &middot; for you &middot; 2026-06-09</p>
