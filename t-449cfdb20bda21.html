@@ -82,6 +82,16 @@
   .call .num{color:#ffb38f;font-size:16px;font-weight:700;letter-spacing:.3px}
   .call .meta{color:#9c96b0;font-size:13px}
 
+  .ck-h{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#bda9ff;font-weight:800;margin:14px 0 6px}
+  .ck-note{font-size:13px;color:#9c96b0;margin:6px 0 2px}
+  .ck{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#e3def0;margin:7px 0;cursor:pointer}
+  .ck input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:18px;height:18px;margin:1px 0 0;
+    border:2px solid #5b5470;border-radius:5px;background:#15121f;position:relative}
+  .ck input:checked{background:#43c98b;border-color:#43c98b}
+  .ck input:checked::after{content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;
+    border:solid #0c0a16;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .ck b{color:#fff}
+
   .seattle{background:linear-gradient(135deg,#141a2e,#1b1430);border:1px solid #2f3a55;
     border-radius:15px;padding:16px;margin:14px 18px 0}
   .line{margin:18px 18px 0;padding:15px 16px;
@@ -128,6 +138,35 @@
       <li><b>You:</b> shower, clothes you feel good in, phone charged. Reread this once.</li>
       <li><b>~3 PM she lands</b> (don't crowd it). When she gives the word, ~7 pickup.</li>
     </ul>
+  </div>
+
+  <div class="card">
+    <span class="tag t-teal">The kit</span>
+    <h2>Pack list (tap to check)</h2>
+    <p class="ck-note"><b>Have:</b> cooler, ice packs (freezing), basket + board + knife + mini glasses, tarp, golden kiwis, coconut water.</p>
+
+    <p class="ck-h">Buy (one Target run)</p>
+    <label class="ck"><input type="checkbox"> Soft sherpa/faux-fur <b>blanket</b> (~$35), over the tarp</label>
+    <label class="ck"><input type="checkbox"> <b>Speaker</b> (JBL Clip 5 ~$70-80), charge + pair before leaving</label>
+    <label class="ck"><input type="checkbox"> <b>Flameless</b> LED tea lights (no open flame)</label>
+    <label class="ck"><input type="checkbox"> <b>Butterfly pea</b> tea bags + a lime (or ask the Thai spot)</label>
+    <label class="ck"><input type="checkbox"> <b>Camera</b> (Instax or disposable)</label>
+    <label class="ck"><input type="checkbox"> <b>Bug spray</b></label>
+
+    <p class="ck-h">Do before leaving</p>
+    <label class="ck"><input type="checkbox"> Charge the chargers + your phone</label>
+    <label class="ck"><input type="checkbox"> Confirm the ice packs are frozen</label>
+    <label class="ck"><input type="checkbox"> Test the speaker, queue her playlist</label>
+    <label class="ck"><input type="checkbox"> Debloat: coffee/tea + a walk, early</label>
+    <label class="ck"><input type="checkbox"> Shower, dress, then load the cooler</label>
+
+    <p class="ck-h">Pickups (in order)</p>
+    <label class="ck"><input type="checkbox"> <b>Jasmine</b>, Vivek (~5 PM, held)</label>
+    <label class="ck"><input type="checkbox"> <b>Dubai strawberry</b>, PappaRoti, fresh ~6:30 (call first)</label>
+    <label class="ck"><input type="checkbox"> <b>Too Thai</b>, pineapple fried rice + drunken noodles</label>
+
+    <p class="ck-h">Pack: cooler vs basket</p>
+    <p class="ck-note"><b>Cooler (cold):</b> jasmine, strawberry, butterfly pea, coconut water, kiwis, glasses wrapped in a napkin. <b>Basket (dry):</b> board, knife, napkins, tea lights, camera. Transfer the cold things to the basket at the walk-in.</p>
   </div>
 
   <div class="card">
