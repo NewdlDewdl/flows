@@ -4,122 +4,229 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Tuesday</title>
+<title>Tonight</title>
 <style>
-  html,body{margin:0;padding:0;background:#0b0d12;color:#e8eaf0;
+  html,body{margin:0;padding:0;background:#0c0a16;color:#ece8f3;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     -webkit-text-size-adjust:100%;line-height:1.55}
-  .wrap{max-width:640px;margin:0 auto;padding:22px 18px 64px}
-  h1{font-size:23px;margin:6px 0 2px;color:#fff;letter-spacing:.2px}
-  .sub{color:#9aa0b4;font-size:14px;margin:0 0 20px}
-  .card{background:#141824;border:1px solid #232838;border-radius:14px;
-    padding:16px 16px 14px;margin:0 0 14px}
+  .wrap{max-width:620px;margin:0 auto;padding:0 0 64px}
+  .pad{padding:0 18px}
+
+  /* sunset hero, pure CSS */
+  .hero{position:relative;overflow:hidden;border-radius:0 0 22px 22px;
+    background:linear-gradient(180deg,#171232 0%,#3a2350 36%,#7d3b5e 62%,#c4663f 83%,#eaa055 100%);
+    padding:34px 20px 30px}
+  .sun{position:absolute;left:50%;bottom:42px;width:120px;height:120px;margin-left:-60px;
+    border-radius:50%;background:radial-gradient(circle at 50% 50%,#ffe7b0 0%,#ffc56a 42%,#ff9a52 70%,rgba(255,154,82,0) 72%);
+    filter:blur(1px);opacity:.92}
+  .horizon{position:absolute;left:0;right:0;bottom:38px;height:1px;background:rgba(255,228,176,.35)}
+  .shine{position:absolute;left:50%;bottom:0;width:60px;height:38px;margin-left:-30px;
+    background:linear-gradient(180deg,rgba(255,210,140,.55),rgba(255,210,140,0));filter:blur(2px)}
+  .hero h1{position:relative;font-family:Georgia,"Times New Roman",serif;font-weight:600;
+    font-size:34px;letter-spacing:.4px;margin:2px 0 4px;color:#fff;text-shadow:0 1px 14px rgba(40,12,40,.5)}
+  .hero .lede{position:relative;font-size:15.5px;color:#fdeede;margin:0 0 14px;max-width:430px;
+    text-shadow:0 1px 8px rgba(40,12,40,.45)}
+  .facts{position:relative;display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .fact{font-size:12px;letter-spacing:.2px;color:#fff;background:rgba(20,10,28,.34);
+    border:1px solid rgba(255,232,190,.28);border-radius:999px;padding:4px 10px;backdrop-filter:blur(2px)}
+
+  .card{background:#15121f;border:1px solid #2a2438;border-radius:15px;
+    padding:16px 16px 14px;margin:14px 18px 0}
   .tag{display:inline-block;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;
-    color:#0b0d12;background:#e7b24c;border-radius:999px;padding:3px 9px;font-weight:700;margin-bottom:9px}
-  .tag.green{background:#5bd6a0}
-  .tag.blue{background:#7db8ff}
-  .tag.muted{background:#2a3145;color:#cfd4e4}
-  h2{font-size:16px;margin:2px 0 8px;color:#fff}
-  p{margin:7px 0;font-size:15px;color:#dfe2ee}
+    color:#1a1208;border-radius:999px;padding:3px 10px;font-weight:800;margin-bottom:10px}
+  .t-go{background:linear-gradient(90deg,#74e0a6,#43c98b)}
+  .t-amber{background:linear-gradient(90deg,#ffd07a,#f4ad3e)}
+  .t-coral{background:linear-gradient(90deg,#ffb38f,#ff8d6b)}
+  .t-rose{background:linear-gradient(90deg,#ffb3c6,#ff8fb0)}
+  .t-teal{background:linear-gradient(90deg,#8fe6d6,#5cc9b6)}
+  .t-lav{background:linear-gradient(90deg,#cdbcff,#a98dff)}
+  .t-mute{background:#2c2740;color:#cfc8e2}
+  h2{font-size:16.5px;margin:2px 0 8px;color:#fff;letter-spacing:.2px}
+  p{margin:7px 0;font-size:15px;color:#e3def0}
   .big{font-size:17px;color:#fff;font-weight:600}
-  .quote{background:#0e1220;border-left:3px solid #7db8ff;border-radius:6px;
-    padding:9px 12px;margin:9px 0;color:#cdd4e8;font-size:15px}
+  .meta{color:#9c96b0;font-size:13px}
+  .quote{background:#100d1b;border-left:3px solid #ff9bb4;border-radius:7px;
+    padding:9px 12px;margin:9px 0;color:#f0dfe8;font-size:15px}
   ul{margin:7px 0;padding-left:20px}
-  li{margin:5px 0;font-size:15px;color:#dfe2ee}
-  .call{display:block;background:#0e1220;border:1px solid #2a3145;border-radius:10px;
-    padding:11px 13px;margin:8px 0;text-decoration:none;color:#e8eaf0}
-  .call b{color:#fff;font-size:15px}
-  .call .num{color:#7db8ff;font-size:16px;font-weight:700;letter-spacing:.3px}
-  .call .meta{color:#9aa0b4;font-size:13px}
+  li{margin:6px 0;font-size:15px;color:#e3def0}
   .no{color:#ff9a9a}
-  .line{margin-top:18px;padding:14px 15px;background:#11261c;border:1px solid #1f5a3f;
-    border-radius:12px;color:#d9ffe9;font-size:15px}
-  .muted-note{color:#8b91a6;font-size:13px;margin-top:26px;text-align:center}
-  hr{border:0;border-top:1px solid #232838;margin:14px 0}
+
+  /* timeline */
+  .tl{position:relative;margin:8px 0 2px;padding-left:8px}
+  .tl .row{position:relative;padding:0 0 16px 26px;border-left:2px solid #36304c;margin-left:6px}
+  .tl .row:last-child{border-left:2px solid transparent;padding-bottom:2px}
+  .tl .dot{position:absolute;left:-8px;top:2px;width:13px;height:13px;border-radius:50%;
+    background:#15121f;border:2px solid #f4ad3e}
+  .tl .row.peak .dot{border-color:#ff8d6b;box-shadow:0 0 0 4px rgba(255,141,107,.16)}
+  .tl .row.go .dot{border-color:#43c98b}
+  .tl .time{font-size:12.5px;font-weight:700;color:#ffd07a;letter-spacing:.4px}
+  .tl .what{font-size:14.5px;color:#e8e3f3;margin-top:1px}
+  .tl .what b{color:#fff}
+
+  /* soundtrack */
+  .track{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-top:1px solid #221d31}
+  .track:first-of-type{border-top:0}
+  .eq{flex:0 0 auto;display:flex;align-items:flex-end;gap:2px;width:18px;height:22px;margin-top:2px}
+  .eq i{width:3px;background:linear-gradient(180deg,#ff9bb4,#a98dff);border-radius:2px;opacity:.85}
+  .eq i:nth-child(1){height:40%}
+  .eq i:nth-child(2){height:90%}
+  .eq i:nth-child(3){height:60%}
+  .eq i:nth-child(4){height:100%}
+  .track .when{font-size:12px;letter-spacing:.3px;text-transform:uppercase;color:#bda9ff;font-weight:700}
+  .track .song{font-size:14.5px;color:#ece8f3;margin-top:1px}
+  .track .song b{color:#fff}
+
+  .call{display:block;background:#100d1b;border:1px solid #2c2740;border-radius:11px;
+    padding:11px 13px;margin:8px 0;text-decoration:none;color:#ece8f3}
+  .call b{color:#fff;font-size:15px}
+  .call .num{color:#ffb38f;font-size:16px;font-weight:700;letter-spacing:.3px}
+  .call .meta{color:#9c96b0;font-size:13px}
+
+  .seattle{background:linear-gradient(135deg,#141a2e,#1b1430);border:1px solid #2f3a55;
+    border-radius:15px;padding:16px;margin:14px 18px 0}
+  .line{margin:18px 18px 0;padding:15px 16px;
+    background:linear-gradient(135deg,#15281d,#112619);border:1px solid #245a40;
+    border-radius:14px;color:#d8ffe9;font-size:15px}
+  .line b{color:#aef0c8}
+  .foot{color:#807a94;font-size:12.5px;margin:24px 18px 0;text-align:center}
+  hr{border:0;border-top:1px solid #221d31;margin:13px 0}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <h1>Tuesday: she lands</h1>
-  <p class="sub">Reunion after her trip. Low-key beats big. Every piece below is already a yes.</p>
-
-  <div class="card">
-    <span class="tag green">She's in</span>
-    <h2>Curfew handled, she wants tomorrow</h2>
-    <p>You asked; she said <b>"ooooooo okayy i will hehe,"</b> <b>"i missed you too,"</b> and <b>"no i want to see you tmr."</b> She thinks she can stay til <b>~10, maybe 10:30</b>, double-checking with her parents after she lands.</p>
-    <p class="meta" style="color:#9aa0b4;font-size:13px">So tomorrow is a real evening. Still hers to size: she lands 3 PM off a flight, so if she's wiped keep it warm and shorter; if she's lit up, go full.</p>
+  <div class="hero">
+    <div class="sun"></div><div class="shine"></div><div class="horizon"></div>
+    <h1>Tonight</h1>
+    <p class="lede">She lands at 3. You see her by the water tonight. A reunion, not a production. Every piece below is already a yes.</p>
+    <div class="facts">
+      <span class="fact">Tue Jun 9</span>
+      <span class="fact">clear, 88&deg; at sunset</span>
+      <span class="fact">sun 8:37 &middot; dusk 9:04</span>
+      <span class="fact">her curfew ~10:30</span>
+    </div>
   </div>
 
   <div class="card">
-    <span class="tag blue">If she's down</span>
-    <h2>The spot: Little Elm (your bench)</h2>
-    <p><b>Little Elm Park</b>, 701 W Eldorado Pkwy. The exact bench you dried off on, your spot. Sunset <b>~8:36</b>. Grass, water, food on a blanket. Card for parking.</p>
-    <p>Park closes <b>9 PM</b> but she can stay til ~10:30, so plan a second beat after: dessert, a drive with her playlist, or the car. Don't end the night at 9 when you've got the time.</p>
-    <p class="meta" style="color:#9aa0b4;font-size:13px">If she's tired: short sit, gift, the hand, "i missed you," home. The real jump-in was off a rented kayak midlake (DFW Surf, closes 8 PM), so that's its own planned night, not a tired travel day.</p>
+    <span class="tag t-go">She's in</span>
+    <h2>Curfew handled, she wants tonight</h2>
+    <p>You asked; she said <b>"ooooooo okayy i will hehe,"</b> <b>"i missed you too,"</b> and <b>"no i want to see you tmr."</b> She'll confirm ~<b>10, maybe 10:30</b> with her parents after she lands, and text when you can come by.</p>
+    <p class="meta">She's off a 3 PM flight, so let her energy size the night: lit up, go full; wiped, keep it warm and short. Both are wins.</p>
   </div>
 
   <div class="card">
-    <span class="tag" style="background:#5bd6a0">Privacy</span>
-    <h2>People walking around?</h2>
-    <p>The lake day happened at this same public beach with people around and it was perfect. For the sit, the gift, the hand, "i missed you," a normal-busy park is fine. You make the bubble.</p>
-    <p>Want fewer people: <b>Stewart Creek Park (The Colony)</b>, same lake, ~23 min from her, the quiet "no party" lake park with bench-lined Shoreline Trail + Sunset Point, open to ~9 PM. Or keep your bench for the meaning and move the private part to <b>the car</b>.</p>
-    <p class="no">Not Hidden Cove tonight: closes 8 PM weekdays, before sunset.</p>
+    <span class="tag t-amber">The shape</span>
+    <h2>How tonight flows</h2>
+    <div class="tl">
+      <div class="row go"><div class="dot"></div>
+        <div class="time">~7:00 PM &middot; pick her up</div>
+        <div class="what">From her place, you drive. <b>Give the jasmine in the cool car</b> so the heat doesn't wilt it. Cue the playlist.</div></div>
+      <div class="row"><div class="dot"></div>
+        <div class="time">~7:40 PM &middot; Little Elm, your bench</div>
+        <div class="what">701 W Eldorado Pkwy, the exact spot you dried off. Walk in, phones away. <b>Take her hand on the walk.</b></div></div>
+      <div class="row"><div class="dot"></div>
+        <div class="time">7:45&ndash;8:37 PM &middot; the grass</div>
+        <div class="what">Food on a blanket, soundtrack low, side by side. The easy, no-small-talk hour you're both good at. It's 88&deg; and cooling; cold drinks help.</div></div>
+      <div class="row peak"><div class="dot"></div>
+        <div class="time">8:37 PM &middot; sunset</div>
+        <div class="what"><b>"i missed you," out loud, to her face.</b> A kiss only if her energy is clearly up. This is the heart of it.</div></div>
+      <div class="row"><div class="dot"></div>
+        <div class="time">~9:00 PM &middot; park closes</div>
+        <div class="what">Drift out before 9 (weekday close). Don't end the night here; she's good til ~10:30.</div></div>
+      <div class="row"><div class="dot"></div>
+        <div class="time">9:00&ndash;10:30 PM &middot; second beat</div>
+        <div class="what">Slow drive, windows cracked, her songs. Something cold if she wants it. Home by curfew, no scorekeeping.</div></div>
+    </div>
+    <p class="meta">Fewer people if you want it: <b>Stewart Creek Park (The Colony)</b>, same lake, ~23 min from her, quiet, open to ~9. Or keep your bench for the meaning and let the car be the private part. The lake day was this same public beach with people around, and it was perfect; you make the bubble.</p>
   </div>
 
   <div class="card">
-    <span class="tag green">The one non-negotiable</span>
+    <span class="tag t-lav">The soundtrack</span>
+    <h2>You said "this needs a soundtrack." So here's tonight's.</h2>
+    <p class="meta">All her songs, off the playlist she sent. One small speaker, cued to the moment. Don't announce it; just have the right thing playing.</p>
+
+    <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
+      <div><div class="when">The drive there</div>
+      <div class="song">Her <b>Weeknd "sped up 3am"</b> edits. Slip in <b>The Neighbourhood, "Nervous (sped up)":</b> literally a song about being nervous to see someone. Your wink.</div></div></div>
+
+    <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
+      <div><div class="when">Golden hour, the grass</div>
+      <div class="song">The dreamy ones: <b>"Reflections"</b> (Neighbourhood), <b>"The Color Violet"</b> (Tory Lanez), <b>"Moonlight"</b> (Dhruv).</div></div></div>
+
+    <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
+      <div><div class="when">Sunset, 8:37</div>
+      <div class="song">One slow tender one while you say it: <b>"Moonlight"</b> or <b>"Passionfruit"</b> (Drake).</div></div></div>
+
+    <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
+      <div><div class="when">Blue hour, close</div>
+      <div class="song">A song from <b>her</b> world off the list: Anirudh's <b>"Idhazhin Oram,"</b> Sid Sriram's <b>"Yennai Maatrum Kadhale,"</b> or her Telugu <b>"Baitikochi Chuste."</b> The jasmine move, in audio.</div></div></div>
+
+    <div class="track"><div class="eq"><i></i><i></i><i></i><i></i></div>
+      <div><div class="when">The drive home</div>
+      <div class="song">Slow and warm: <b>"Passionfruit," "Koi Si," "Kinni Kinni"</b> (Diljit), <b>"Mona Lisa."</b></div></div></div>
+  </div>
+
+  <div class="card">
+    <span class="tag t-go">The one non-negotiable</span>
     <h2>Take her hand</h2>
     <p class="big">You said "i want to hold your hand when we walk." She said "me too."</p>
-    <p>That is your guaranteed escalation: guaranteed because she already said yes, not because you forced it. When you walk, reach slow, take her hand. Do not overthink it into a freeze. That is the rep. Everything else is bonus.</p>
+    <p>That is your guaranteed escalation: guaranteed because she already said yes, not because you forced it. When you walk in, reach slow, take her hand. Don't overthink it into a freeze. That's the rep. Everything else is bonus.</p>
   </div>
 
   <div class="card">
-    <span class="tag blue">The ladder</span>
-    <h2>Offer, do not grab</h2>
+    <span class="tag t-teal">The ladder</span>
+    <h2>Offer, don't grab</h2>
     <ul>
       <li><b>Presence.</b> Phone away. Look at her. Let the week-apart show.</li>
-      <li><b>The hand.</b> Pre-greenlit. Cash it (above).</li>
+      <li><b>The hand.</b> Pre-greenlit. Cash it.</li>
       <li><b>One true thing out loud:</b> "i missed you," to her face. Your real edge. Short and true.</li>
-      <li><b>A kiss, only if it is there.</b> Telegraph it (lean in, pause, let her close it) or ask "can i kiss you." Her <i>enthusiasm</i> is the green light. If it is not clearly there, the hand + "i missed you" already made tonight a win.</li>
+      <li><b>A kiss, only if it's there.</b> Telegraph it (lean in, pause, let her close it) or ask "can i kiss you." Her <i>enthusiasm</i> is the green light. If it isn't clearly there, the hand and "i missed you" already made tonight a win.</li>
     </ul>
-    <p class="meta" style="color:#9aa0b4;font-size:13px">Quiet / stiff / "maybe later" = stop, stay warm, no sigh. Not sure = no for now.</p>
+    <p class="meta">Quiet / stiff / "maybe later" = stop, stay warm, no sigh. Not sure = no for now.</p>
   </div>
 
   <div class="card">
-    <span class="tag">The gift</span>
+    <span class="tag t-rose">The gift</span>
     <h2>Jasmine + chocolate strawberries</h2>
-    <p>Two of her loves, same-day, near your office. Modest and specific. Do not over-buy.</p>
+    <p>Two of her loves, same-day, near your office. Modest and specific. Don't over-buy. Keep both cold; hand the jasmine over first thing in the AC car.</p>
 
     <a class="call" href="tel:4699807222">
       <b>Hareli Fresh Market</b> &middot; <span class="num">469-980-7222</span><br>
-      <span class="meta">2525 Main St #430 &middot; open 9:30a&ndash;9p &middot; ask: "fresh jasmine strands or gajra today?" Keep it cool after.</span>
+      <span class="meta">2525 Main St #430 &middot; open 9:30a&ndash;9p &middot; ask: "fresh jasmine strands or gajra today?"</span>
     </a>
 
     <a class="call" href="https://maps.apple.com/?q=Edible+Arrangements+4760+Preston+Rd+Frisco">
       <b>Edible Arrangements</b> &middot; <span class="num">strawberries</span><br>
-      <span class="meta">4760 Preston Rd, Frisco &middot; same-day pickup &middot; call the store to confirm a time. A small box, not a tower.</span>
+      <span class="meta">4760 Preston Rd, Frisco &middot; same-day pickup &middot; call to confirm a time. A small box, not a tower.</span>
     </a>
 
-    <p style="margin-top:10px"><b>How to give the jasmine:</b> it comes as a strand/gajra, not a bouquet. Plain way: hand it over, "they're jasmine, you said they're your favorite." Intimate way (ask first): "can i put it in your hair?" then tuck it in. Keep it fridge-cool until you see her; it browns in heat.</p>
-    <p class="no">Not tomorrow: lotus (special-order, save it for the ask). Hibiscus plant optional, skip if it is a chore.</p>
+    <p style="margin-top:10px"><b>Giving the jasmine:</b> it's a strand/gajra, not a bouquet. Plain: hand it over, "they're jasmine, you said they're your favorite." Intimate (ask first): "can i put it in your hair?" then tuck it in.</p>
+    <p class="no">Not tonight: lotus (special-order, save it for the ask).</p>
+  </div>
+
+  <div class="seattle">
+    <span class="tag t-lav">The callback</span>
+    <h2>The Seattle bit (one quiet line)</h2>
+    <p>Last night you two built a whole daydream: a year in Seattle, you make the coffee, she complains about the rain. Sometime in a comfortable silence by the water, drop it back, light:</p>
+    <p class="quote">"ok so when we do our Seattle year, i'm on coffee. you just complain about the rain."</p>
+    <p class="meta">It's a coded "us, next year," said as a joke so there's zero pressure. Not an opener, not a speech; a soft aside when it's quiet. It continues a thread that's twelve hours old, which is why it lands.</p>
   </div>
 
   <div class="card">
-    <span class="tag muted" style="background:#2a3145;color:#cfd4e4">Hold the line</span>
+    <span class="tag t-mute">Hold the line</span>
     <h2>Three don'ts</h2>
     <ul>
       <li><span class="no">No "i love you."</span> She paced that word. "i missed you" is the move. Be unbothered by her brake.</li>
-      <li><span class="no">Not the girlfriend-ask tonight.</span> She is jet-lagged. Save it for a planned date with the lotus.</li>
+      <li><span class="no">Not the girlfriend-ask tonight.</span> She's jet-lagged. Save it for a planned date with the lotus.</li>
       <li><span class="no">No lobbying, no checklist, no escalating to calm your head.</span> One rung, already greenlit.</li>
     </ul>
   </div>
 
   <div class="line">
-    <b>The one line:</b> Get her landing time. Bring jasmine and strawberries. Phone away, look at her, take her hand when you walk, say "i missed you" out loud. That is the whole night.
+    <b>The one line:</b> Jasmine in the car, take her to the water, phone away, look at her, take her hand when you walk, say "i missed you" out loud. That's the whole night, and every piece is already a yes.
   </div>
 
-  <p class="muted-note">private &middot; for you &middot; 2026-06-09</p>
+  <p class="foot">private &middot; for you &middot; 2026-06-09</p>
 
 </div>
 </body>
