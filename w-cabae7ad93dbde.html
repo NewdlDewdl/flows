@@ -10,11 +10,7 @@
   html, body { margin: 0; padding: 0; background: #0d0f12; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: #e8eaed;
-    line-height: 1.5;
-    padding: 18px 14px 40px;
-    max-width: 540px;
-    margin: 0 auto;
+    color: #e8eaed; line-height: 1.5; padding: 18px 14px 40px; max-width: 540px; margin: 0 auto;
   }
   .bar { height: 5px; border-radius: 5px; background: #2ea043; margin-bottom: 16px; }
   h1 { font-size: 25px; line-height: 1.15; margin: 0 0 4px; letter-spacing: -0.3px; }
@@ -26,47 +22,59 @@
   .card.skip { border-left: 4px solid #e5534b; }
   .card.hydrate { border-left: 4px solid #e0a458; background: #1c1a14; }
   .card.flags { border: 1px solid #6e2b27; background: #1d1413; }
-  h2 { font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; margin: 0 0 10px; font-weight: 700; }
-  .do h2 { color: #5fd17a; }
-  .skip h2 { color: #f17b73; }
-  .hydrate h2 { color: #e9b873; }
-  .flags h2 { color: #f17b73; }
+  h2 { font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; margin: 0 0 11px; font-weight: 700; }
+  .do h2 { color: #5fd17a; } .skip h2 { color: #f17b73; } .hydrate h2 { color: #e9b873; } .flags h2 { color: #f17b73; }
+  .step { display: flex; gap: 11px; padding: 8px 0; border-top: 1px solid #20252b; font-size: 15.5px; }
+  .step:first-of-type { border-top: none; }
+  .t { flex: 0 0 56px; color: #6cb6e0; font-weight: 700; font-variant-numeric: tabular-nums; font-size: 14px; padding-top: 1px; }
+  .step b { color: #fff; }
+  .lvl { color: #e9b873; font-weight: 700; }
+  .blk { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #9aa0a6; font-weight: 700; margin: 4px 0 6px; }
+  .blk.two { margin-top: 16px; padding-top: 12px; border-top: 1px dashed #2a2f36; }
   ul { margin: 0; padding: 0; list-style: none; }
-  li { position: relative; padding: 6px 0 6px 26px; font-size: 16px; border-top: 1px solid #20252b; }
+  li { position: relative; padding: 6px 0 6px 26px; font-size: 15.5px; border-top: 1px solid #20252b; }
   li:first-child { border-top: none; }
   li b { color: #fff; }
-  .do li::before { content: "✓"; position: absolute; left: 2px; top: 6px; color: #2ea043; font-weight: 800; }
+  .do li { border-top: none; padding: 4px 0 4px 26px; }
+  .do li::before { content: "•"; position: absolute; left: 6px; top: 4px; color: #2ea043; font-weight: 800; }
   .skip li::before { content: "✕"; position: absolute; left: 3px; top: 6px; color: #e5534b; font-weight: 800; }
   .flags li::before { content: "!"; position: absolute; left: 6px; top: 6px; color: #e5534b; font-weight: 800; }
   .hydrate p { margin: 0; font-size: 16px; }
-  .why { color: #8b9197; font-size: 13.5px; margin: 8px 0 0; padding-left: 26px; }
+  .why { color: #8b9197; font-size: 13.5px; margin: 9px 0 0; }
   .foot { color: #8b9197; font-size: 14px; text-align: center; margin: 22px 6px 0; line-height: 1.5; }
   .foot b { color: #cfd3d8; }
 </style>
 </head>
 <body>
   <div class="bar"></div>
-  <h1>Take the edge off. Safely.</h1>
-  <p class="sub">4am · wired · big day in ~5 hrs. Cap it ~45 min, then home and sleep.</p>
+  <h1>StairMaster session</h1>
+  <p class="sub">4am · wired · big day in ~5 hrs. ~45 min cap, then home and sleep.</p>
 
   <div class="pills">
-    <span class="pill">Cardio-led</span>
+    <span class="pill">StairMaster 30 min</span>
     <span class="pill">Light pump</span>
     <span class="pill">Hydrate hard</span>
-    <span class="pill">~45 min</span>
+    <span class="pill">No max-effort</span>
   </div>
 
   <div class="card hydrate">
-    <h2>Do this first</h2>
-    <p><b>Big water + a coconut water before you start, and sip a bottle the whole time.</b> This is the #1 safety lever today. You're dehydrated from the salt + beer + no sleep.</p>
+    <h2>Before you start</h2>
+    <p><b>~1 pint water + a coconut water down now,</b> bottle filled on the machine, sip throughout. Biggest safety lever today, you're dehydrated.</p>
   </div>
 
   <div class="card do">
-    <h2>Green light</h2>
+    <h2>The session</h2>
+    <div class="blk">StairMaster · 30 min</div>
+    <div class="step"><span class="t">0-4</span><span><b>Warm up</b>, <span class="lvl">level 5-6</span>. Stand tall, full foot each step, fingertips on the rail for balance only, don't lean on it.</span></div>
+    <div class="step"><span class="t">4-26</span><span><b>Steady state</b>, <span class="lvl">level 7-9</span>. HR ~130-145, or talk-test: short sentences, not gasping. Smooth cadence. Still wired? <b>Add minutes, not level.</b></span></div>
+    <div class="step"><span class="t">26-30</span><span><b>Cool down</b>, <span class="lvl">level 4-5</span>, HR back under ~120.</span></div>
+
+    <div class="blk two">Optional pump · ~10 min · only if you want it</div>
     <ul>
-      <li><b>Lead with cardio.</b> Stairs / incline treadmill / elliptical / bike, 25-40 min, steady &amp; brisk (HR ~130-150). This is what actually burns the wired feeling off.</li>
-      <li><b>If you lift: light + high-rep + pump.</b> Machines &amp; cables, 12-20 reps, leave 3-4 in the tank. Chase the pump, not the number.</li>
-      <li><b>Then out.</b> Home, rehydrate, lights off, steal a couple hours.</li>
+      <li>Light + high-rep, <b>leave 3-4 in the tank</b>, controlled (no slow grinding reps).</li>
+      <li><b>Chest press machine</b> — 3 × 15</li>
+      <li><b>Lat pulldown</b> or seated row — 3 × 15, squeeze the back</li>
+      <li><b>Cable lateral raises</b> — 2 × 18-20 (delts, zero risk, great pump)</li>
     </ul>
   </div>
 
@@ -74,9 +82,9 @@
     <h2>Hard skip tonight</h2>
     <ul>
       <li><b>No max-effort / to-failure</b>, no heavy slow negatives, nothing new-and-heavy. That's the one real risk.</li>
-      <li><b>No sprint intervals.</b> They spike cortisol = more water retention = puffier, not leaner.</li>
-      <li><b>No legs.</b> Long day on your feet and in the car ahead; sore quads would wreck it.</li>
-      <li><b>No pre-workout / energy drink / extra caffeine.</b> You're already wired. Water only.</li>
+      <li><b>No sprint intervals</b> on the stairs. Spikes cortisol = more water = puffier, not leaner.</li>
+      <li><b>No added leg work.</b> The stairs are your legs for today; long day on your feet ahead.</li>
+      <li><b>No pre-workout / energy drink / extra caffeine.</b> Already wired. Water only.</li>
       <li><b>No ibuprofen after.</b> Rough on the kidneys in this exact stack.</li>
     </ul>
     <p class="why">Why light: meds + no sleep + a max-effort session is the bad stack you logged. Drop the max-effort and you defuse almost all of it.</p>
@@ -92,6 +100,6 @@
     <p class="why">Any of these = a CK blood test / urgent care, not tough-it-out. Unlikely if you keep it light and hydrate, but know them.</p>
   </div>
 
-  <p class="foot">It's <b>cosmetic + temporary</b>. The bloat deflates with sleep + tomorrow's potassium flood. Drain the tank, go home, sleep. <b>She likes you, not your CK levels.</b></p>
+  <p class="foot">Out by ~45 min. The bloat deflates with sleep + tomorrow's potassium flood, not with punishment. Drain the tank, go home, sleep. <b>She likes you, not your CK levels.</b></p>
 </body>
 </html>
