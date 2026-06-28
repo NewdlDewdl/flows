@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dextrose Protocol — intra-workout glucose, K-maxxing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#07151a; --ink-2:#0a1d23; --surface:#0e242b; --surface-2:#112c34;
+    --line:#1c3b43; --line-2:#274e57;
+    --teal:#2fd4c4; --teal-bright:#4fe6d6; --teal-deep:#0e8a8f; --teal-dim:#1a6f74;
+    --gold:#f0b53c; --gold-deep:#c1851f;
+    --fg:#e8f4f4; --muted:#8fb3b6; --faint:#5f868b;
+    --danger:#ef6a4d; --danger-bg:#2a1512; --good:#39d39a;
+    --max:#ef6a4d;
+    --r:14px; --r-sm:9px;
+    --display:"Barlow Condensed",system-ui,sans-serif;
+    --body:"Barlow",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#07151a;}
+  body{
+    color:#e8f4f4; font-family:"Barlow",system-ui,sans-serif; line-height:1.55; font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(1200px 600px at 78% -10%, rgba(47,212,196,.10), transparent 60%),
+      radial-gradient(900px 500px at 8% 8%, rgba(240,181,60,.06), transparent 55%),
+      #07151a;
+    min-height:100vh;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:34px 22px 70px;}
+  a{color:inherit;}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-variant-numeric:tabular-nums;}
+
+  /* ===== eyebrow / labels ===== */
+  .eyebrow{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.72rem; letter-spacing:.34em; text-transform:uppercase;
+    color:#2fd4c4; display:flex; align-items:center; gap:9px;}
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:#2fd4c4;
+    box-shadow:0 0 0 4px rgba(47,212,196,.16); animation:pulse 2.6s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.4;}}
+
+  /* ===== HERO ===== */
+  .hero{display:grid; grid-template-columns:1.35fr 1fr; gap:30px; align-items:end;
+    padding-bottom:26px; border-bottom:1px solid #1c3b43; margin-bottom:30px;}
+  h1{font-family:"Barlow Condensed",system-ui,sans-serif; font-weight:700; font-size:clamp(3.1rem,8vw,5.6rem);
+    line-height:.9; letter-spacing:.005em; margin:14px 0 0; text-transform:uppercase;
+    color:#e8f4f4;}
+  h1 .lo{display:block; color:#2fd4c4; }
+  h1 .hi{display:block; color:#f0b53c;}
+  .tagline{color:#8fb3b6; font-size:1.02rem; margin-top:14px; max-width:42ch;}
+  .tagline b{color:#e8f4f4; font-weight:600;}
+  .tagline .salt{color:#f0b53c; font-weight:600;}
+
+  /* hero readouts (lab gauges) */
+  .readouts{display:flex; flex-direction:column; gap:11px;}
+  .ro{display:flex; align-items:baseline; justify-content:space-between; gap:14px;
+    background:linear-gradient(180deg, #0e242b, #0a1d23);
+    border:1px solid #1c3b43; border-radius:14px; padding:13px 17px; position:relative; overflow:hidden;}
+  .ro::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px; background:#0e8a8f;}
+  .ro.g::before{background:#c1851f;}
+  .ro.z::before{background:#1a6f74;}
+  .ro .v{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-weight:600; font-size:1.9rem; color:#e8f4f4; font-variant-numeric:tabular-nums; line-height:1;}
+  .ro.g .v{color:#f0b53c;}
+  .ro .v small{font-size:.92rem; color:#5f868b; font-weight:500;}
+  .ro .k{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:#8fb3b6; text-align:right; max-width:11ch;}
+
+  /* ===== anti-bloat law ===== */
+  .law{display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start;
+    background:
+      linear-gradient(180deg, rgba(240,181,60,.07), rgba(240,181,60,.02)),
+      #0a1d23;
+    border:1px solid #3a3016; border-left:4px solid #f0b53c; border-radius:14px;
+    padding:18px 20px; margin-bottom:34px;}
+  .law .ic{color:#f0b53c; flex-shrink:0; margin-top:2px;}
+  .law h2{font-family:"Barlow Condensed",system-ui,sans-serif; text-transform:uppercase; letter-spacing:.06em;
+    font-size:1.15rem; color:#f0b53c; margin:0 0 6px; font-weight:600;}
+  .law p{margin:0; color:#e7d9b8; font-size:.97rem;}
+  .law b{color:#ffe9b8;}
+
+  /* ===== section heads ===== */
+  .sec{margin:0 0 16px; display:flex; align-items:center; gap:13px;}
+  .sec .n{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.74rem; color:#2fd4c4; letter-spacing:.1em;}
+  .sec h2{font-family:"Barlow Condensed",system-ui,sans-serif; text-transform:uppercase; letter-spacing:.05em;
+    font-size:1.35rem; color:#e8f4f4; margin:0; font-weight:600;}
+  .sec .rule{flex:1; height:1px; background:linear-gradient(90deg,#274e57,transparent);}
+
+  /* ===== dose legs ===== */
+  .legs{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:38px;}
+  .leg{background:linear-gradient(180deg,#0e242b,#0a1d23); border:1px solid #1c3b43;
+    border-radius:14px; padding:17px 17px 18px; position:relative; transition:border-color .25s, transform .25s;}
+  .leg:hover{border-color:#1a6f74; transform:translateY(-3px);}
+  .leg .lh{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:3px;}
+  .leg .name{font-family:"Barlow Condensed",system-ui,sans-serif; font-weight:700; font-size:1.6rem; letter-spacing:.03em;
+    text-transform:uppercase; color:#2fd4c4;}
+  .leg .when{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.66rem; color:#5f868b; letter-spacing:.04em; text-align:right; max-width:13ch;}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin:12px 0 14px;}
+  .chip{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.78rem; background:#07151a; border:1px solid #274e57;
+    border-radius:9px; padding:5px 9px; color:#8fb3b6; font-variant-numeric:tabular-nums;}
+  .chip b{color:#2fd4c4; font-weight:600; font-size:.92rem;}
+  .chip.gold b{color:#f0b53c;}
+  .chip.off{border-color:#3a3016;}
+
+  /* concentration meter = the signature element */
+  .meter{margin:2px 0 13px;}
+  .meter .mlabel{display:flex; justify-content:space-between; font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+    font-size:.62rem; letter-spacing:.08em; color:#5f868b; text-transform:uppercase; margin-bottom:5px;}
+  .meter .mlabel .pct{color:#2fd4c4;}
+  .track{position:relative; height:9px; background:#07151a; border:1px solid #274e57;
+    border-radius:6px; overflow:hidden;}
+  .track .safe{position:absolute; left:0; top:0; bottom:0; width:60%;
+    background:repeating-linear-gradient(90deg, rgba(47,212,196,.07) 0 6px, transparent 6px 12px);}
+  .track .bloat{position:absolute; left:80%; right:0; top:0; bottom:0; background:rgba(239,106,77,.14);}
+  .track .fill{position:absolute; left:0; top:0; bottom:0; width:0;
+    background:linear-gradient(90deg, #0e8a8f, #4fe6d6);
+    border-radius:6px; transition:width 1.1s cubic-bezier(.22,1,.36,1);}
+  .track .ceil{position:absolute; left:60%; top:-2px; bottom:-2px; width:2px; background:#f0b53c;}
+  .meter .scale{display:flex; justify-content:space-between; font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
+    font-size:.56rem; color:#5f868b; margin-top:4px;}
+  .leg .why{font-size:.88rem; color:#8fb3b6; margin:0;}
+  .leg .why b{color:#e8f4f4; font-weight:600;}
+  .leg .cue{display:block; margin-top:8px; font-size:.8rem; color:#5f868b; font-style:italic;
+    border-top:1px dashed #274e57; padding-top:8px;}
+
+  /* ===== two-column: recipes + timeline ===== */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:38px;}
+  .recipe{display:flex; gap:12px; align-items:flex-start; padding:12px 0; border-bottom:1px solid #1c3b43;}
+  .recipe:last-child{border-bottom:none;}
+  .recipe .tag{font-family:"Barlow Condensed",system-ui,sans-serif; font-weight:700; text-transform:uppercase; color:#2fd4c4;
+    font-size:1.05rem; min-width:62px; letter-spacing:.04em;}
+  .recipe .txt{font-size:.92rem; color:#8fb3b6;}
+  .recipe .txt b{color:#e8f4f4;} .recipe .txt .g{color:#f0b53c;}
+
+  .tl{position:relative; padding-left:24px;}
+  .tl::before{content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px;
+    background:linear-gradient(180deg,#0e8a8f,#1a6f74,transparent);}
+  .tl li{position:relative; list-style:none; padding:0 0 13px;}
+  .tl li::before{content:""; position:absolute; left:-22px; top:6px; width:9px; height:9px; border-radius:50%;
+    background:#07151a; border:2px solid #2fd4c4; box-shadow:0 0 0 3px rgba(47,212,196,.1);}
+  .tl .t{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.74rem; color:#2fd4c4; letter-spacing:.04em;}
+  .tl .d{font-size:.9rem; color:#8fb3b6;}
+  .tl .d b{color:#e8f4f4;}
+
+  /* ===== order (prescription) ===== */
+  .order{background:linear-gradient(180deg, rgba(57,211,154,.06), transparent), #0a1d23;
+    border:1px solid #1d4536; border-left:4px solid #39d39a; border-radius:14px;
+    padding:20px 22px; margin-bottom:22px;}
+  .order .ohead{display:flex; align-items:center; gap:11px; margin-bottom:14px;}
+  .order .ohead .ic{color:#39d39a;}
+  .order .ohead h2{font-family:"Barlow Condensed",system-ui,sans-serif; text-transform:uppercase; letter-spacing:.05em;
+    font-size:1.25rem; color:#39d39a; margin:0; font-weight:600;}
+  .rx{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:14px;}
+  .rx .item{background:#07151a; border:1px solid #1c3b43; border-radius:9px; padding:13px 15px;}
+  .rx .item .nm{font-weight:600; color:#e8f4f4; font-size:.96rem; margin-bottom:4px;}
+  .rx .item .stat{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.82rem; color:#39d39a; margin-bottom:6px; font-variant-numeric:tabular-nums;}
+  .rx .item .ds{font-size:.84rem; color:#8fb3b6;}
+  .order .how{font-size:.86rem; color:#8fb3b6; margin:0;}
+  .order .how b{color:#e8f4f4;}
+
+  /* ===== safety ===== */
+  .safe-note{background:#2a1512; border:1px solid #4a261d; border-left:4px solid #ef6a4d;
+    border-radius:14px; padding:15px 18px; font-size:.88rem; color:#f0cabf;}
+  .safe-note .sh{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.66rem; letter-spacing:.18em; text-transform:uppercase;
+    color:#ef6a4d; display:flex; align-items:center; gap:8px; margin-bottom:7px;}
+  .safe-note b{color:#ffd9cd;}
+
+  footer{margin-top:30px; padding-top:16px; border-top:1px solid #1c3b43;
+    font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace; font-size:.72rem; color:#5f868b; line-height:1.7;}
+  footer b{color:#8fb3b6;}
+
+  /* ===== responsive ===== */
+  @media (max-width:880px){
+    .hero{grid-template-columns:1fr; gap:22px;}
+    .legs{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr; gap:24px;}
+    .rx{grid-template-columns:1fr;}
+  }
+  @media (max-width:430px){
+    .wrap{padding:24px 15px 56px;}
+    .ro .v{font-size:1.6rem;}
+  }
+
+  :focus-visible{outline:2px solid #4fe6d6; outline-offset:3px; border-radius:4px;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important;}
+    .track .fill{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== HERO ===== -->
+  <header class="hero">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>intra-workout glucose &middot; cardio &rarr; lift</div>
+      <h1><span class="lo">Dextrose</span><span class="hi">Protocol</span></h1>
+      <p class="tagline">Pure glucose fuel, engineered for <b>zero bloat</b>. Tuned for a <span class="salt">K-maxxing day: salt is OFF</span>, the dilution does the work.</p>
+    </div>
+    <div class="readouts" aria-label="session totals">
+      <div class="ro z"><span class="v">65<small> g</small></span><span class="k">dextrose / session</span></div>
+      <div class="ro"><span class="v">~221<small> kcal</small></span><span class="k">total energy</span></div>
+      <div class="ro g"><span class="v">0<small> mg</small></span><span class="k">added sodium</span></div>
+    </div>
+  </header>
+
+  <!-- ===== LAW ===== -->
+  <section class="law">
+    <svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7s5.5 5.4 5.5 9.4a5.5 5.5 0 0 1-11 0c0-4 5.5-9.4 5.5-9.4Z"/><path d="M9.3 13.2a2.7 2.7 0 0 0 2.7 2.4"/></svg>
+    <div>
+      <h2>Why salt is off today</h2>
+      <p>The pinch of salt does two real jobs: it co-absorbs glucose and water (a <b>hydration</b> assist) and replaces sweat sodium. But it is not free. That 1/8 tsp is <b>~295 mg sodium, 15 to 20% of a 1,500 to 2,000 mg daily ceiling</b>, and a short indoor session rarely sweats it back out. The true anti-bloat lever is the <b>6%-or-lower concentration</b>, independent of the salt. Keep salt off by default; add it back only when you sweat through your shirt.</p>
+    </div>
+  </section>
+
+  <!-- ===== DOSE LEGS ===== -->
+  <div class="sec"><span class="n">01</span><h2>The three legs</h2><span class="rule"></span></div>
+  <section class="legs">
+
+    <article class="leg">
+      <div class="lh"><span class="name">Pre</span><span class="when">warm-up, as cardio starts</span></div>
+      <div class="chips"><span class="chip"><b>15 g</b> dextrose</span><span class="chip"><b>~380 mL</b> water</span><span class="chip"><b>202</b> mOsm</span></div>
+      <div class="meter">
+        <div class="mlabel"><span>concentration</span><span class="pct" data-pct="4">4%</span></div>
+        <div class="track"><span class="safe"></span><span class="bloat"></span><span class="ceil"></span><span class="fill" data-width="40"></span></div>
+        <div class="scale"><span>0</span><span>6% ceiling</span><span>10%</span></div>
+      </div>
+      <p class="why"><b>Timing is the trick.</b> Drink it as you begin cardio, not 30 to 60 min before. Cardio-first normalizes any transient sugar dip. No salt: small and fast.</p>
+    </article>
+
+    <article class="leg">
+      <div class="lh"><span class="name">Intra</span><span class="when">sipped across the lift</span></div>
+      <div class="chips"><span class="chip"><b>25 g</b> dextrose</span><span class="chip"><b>~420 mL</b> water</span><span class="chip"><b>303</b> mOsm</span><span class="chip gold off"><b>0 mg</b> Na</span></div>
+      <div class="meter">
+        <div class="mlabel"><span>concentration</span><span class="pct" data-pct="6">6%</span></div>
+        <div class="track"><span class="safe"></span><span class="bloat"></span><span class="ceil"></span><span class="fill" data-width="60"></span></div>
+        <div class="scale"><span>0</span><span>6% ceiling</span><span>10%</span></div>
+      </div>
+      <p class="why">The workhorse, well under the <b>60 g/h</b> single-carb absorption cap; 6% empties fast. Salt omitted for K-maxxing; the dilution carries the anti-bloat load.<span class="cue">Sweat through your shirt? Add 1/8 tsp (~295 mg) back. Then it is replacement, not retention.</span></p>
+    </article>
+
+    <article class="leg">
+      <div class="lh"><span class="name">Post</span><span class="when">within 60 min of the last set</span></div>
+      <div class="chips"><span class="chip"><b>25 g</b> dextrose</span><span class="chip"><b>30-40 g</b> whey</span><span class="chip"><b>~420 mL</b> water</span></div>
+      <div class="meter">
+        <div class="mlabel"><span>concentration</span><span class="pct" data-pct="6">6%</span></div>
+        <div class="track"><span class="safe"></span><span class="bloat"></span><span class="ceil"></span><span class="fill" data-width="60"></span></div>
+        <div class="scale"><span>0</span><span>6% ceiling</span><span>10%</span></div>
+      </div>
+      <p class="why"><b>The protein earns the calories.</b> Carb plus protein drives glycogen resynthesis. First leg to cut on a calorie-tight day. No salt.</p>
+    </article>
+
+  </section>
+
+  <!-- ===== RECIPES + TIMELINE ===== -->
+  <div class="split">
+    <div>
+      <div class="sec"><span class="n">02</span><h2>Bottle recipes</h2><span class="rule"></span></div>
+      <div class="recipe"><span class="tag">Pre</span><span class="txt"><b>15 g</b> dextrose (~1 heaped tbsp) in <b>380 mL</b> (~13 oz) water. Thin, barely sweet.</span></div>
+      <div class="recipe"><span class="tag">Intra</span><span class="txt"><b>25 g</b> dextrose (~2 tbsp) in <b>420 mL</b> (~14 oz) water. <span class="g">No salt</span> on a K-maxxing day.</span></div>
+      <div class="recipe"><span class="tag">Post</span><span class="txt"><b>25 g</b> dextrose + <b>30-40 g</b> whey in ~420 mL water. Shake hard; drink within the hour.</span></div>
+    </div>
+    <div>
+      <div class="sec"><span class="n">03</span><h2>Timeline</h2><span class="rule"></span></div>
+      <ul class="tl">
+        <li><div class="t">T-90</div><div class="d">optional light K-rich pre-meal, no added salt</div></li>
+        <li><div class="t">T-15</div><div class="d">sip water to ~16-20 oz, no electrolyte mixes</div></li>
+        <li><div class="t">T-0</div><div class="d"><b>warm-up + cardio first</b>; sip PRE</div></li>
+        <li><div class="t">T+5 → end</div><div class="d">lift; sip INTRA, never slam</div></li>
+        <li><div class="t">+60 min</div><div class="d">POST within the hour, fine in the car</div></li>
+        <li><div class="t">evening</div><div class="d">big-K plate; mag glycinate 200-400 mg pre-bed</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== ORDER ===== -->
+  <div class="sec"><span class="n">04</span><h2>The K-maxxing order</h2><span class="rule"></span></div>
+  <section class="order">
+    <div class="ohead">
+      <svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18.5" cy="17" r="2.3"/></svg>
+      <h2>Order this — maximize K:Na</h2>
+    </div>
+    <div class="rx">
+      <div class="item">
+        <div class="nm">Potassium gluconate powder</div>
+        <div class="stat mono">175 mg K · 0 mg Na · 0 sugar / ½ tsp</div>
+        <div class="ds">The clean lever and gentlest salt form, not the citrate that caused vomiting. e.g. NOW Foods Pure Powder.</div>
+      </div>
+      <div class="item">
+        <div class="nm">Organic coconut water powder</div>
+        <div class="stat mono">600 mg K · 5 mg Na / 12 g = 120:1</div>
+        <div class="ds">Verified on the label. Food-matrix flavor at ~8 g sugar / 30 kcal. Brand-specific (Nutricost); others run ~13:1.</div>
+      </div>
+    </div>
+    <p class="how"><b>How:</b> diluted in 8+ oz water, with food, in divided doses, start small. <b>Safety:</b> skip isolated K with kidney issues or on an ACE inhibitor, ARB, or K-sparing diuretic.</p>
+  </section>
+
+  <!-- ===== SAFETY ===== -->
+  <section class="safe-note">
+    <div class="sh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 3.9 2.4 18a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>session safety</div>
+    Hydrate through the session; this is fuel, not a reason to push to failure. Keep cardio easy-to-moderate, avoid max-effort or heavy eccentrics on low sleep, and skip NSAIDs right after a hard session. <b>Stop and seek care for dark or cola-colored urine, muscle pain out of proportion to the work, or real weakness.</b>
+  </section>
+
+  <footer>
+    Doses from the canonical engine <b>dextrose-calc.mjs</b> (137 lb, lean): PRE 15 g / 380 mL / 4% / 202 mOsm · INTRA 25 g / 420 mL / 6% / 303 mOsm · POST 25 g / 420 mL / 6% · 65 g, ~221 kcal total · intra under the 60 g/h cap. Salt 0 mg today per the verified K-maxxing rule. Cosmetic and temporary; not medical advice.
+  </footer>
+
+</div>
+
+<script>
+  // Signature: concentration meters fill on load (staggered), unless reduced-motion.
+  (function(){
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    var fills = document.querySelectorAll('.track .fill');
+    if (reduce){
+      fills.forEach(function(f){ f.style.width = f.getAttribute('data-width') + '%'; });
+      return;
+    }
+    // start at 0, then animate after first paint, staggered per leg
+    requestAnimationFrame(function(){
+      requestAnimationFrame(function(){
+        fills.forEach(function(f, i){
+          setTimeout(function(){ f.style.width = f.getAttribute('data-width') + '%'; }, 140 * i + 160);
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
