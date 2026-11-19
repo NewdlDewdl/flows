@@ -11,20 +11,28 @@ body{margin:0;background:#f6f5f2;color:#17171a;font:17px/1.45 -apple-system,Blin
 main{max-width:560px;margin:0 auto;padding:20px 16px 40px}
 h1{font-size:26px;margin:4px 0 4px;letter-spacing:-.01em}
 .sub{color:#5d5d66;font-size:15px;margin:0 0 18px}
-a.walk{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #e2e0da;border-radius:14px;padding:16px 16px 14px;margin:0 0 12px}
-.t{font-weight:700;font-size:19px;color:#2f5bd3}
-.b{color:#5d5d66;font-size:14px;margin-top:2px}
+.book{border:1px solid #e2e0da;border-left:8px solid #2f5bd3;border-radius:14px;margin:0 0 14px;overflow:hidden}
+a.walk{display:block;text-decoration:none;color:inherit;padding:16px 16px 14px}
+.t{font-weight:700;font-size:19px}
+.tag{display:inline-block;font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border:1px solid;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:3px}
+.b{font-size:14px;margin-top:2px}
 .n{font-size:15px;margin-top:8px}
-.p{color:#9a5b00;font-size:14px;margin-top:4px}
-.more{font-size:14px;margin:-4px 0 14px 4px}
-.more a{color:#2f5bd3}
+.p{font-size:14px;margin-top:4px}
+.more{font-size:14px;margin:-6px 16px 14px}
 footer{color:#5d5d66;font-size:13px;margin-top:22px}
+.book.chance{background:#F6F8FB;border-color:#C3D0DE;border-left-color:#0E2F4F}.book.chance .t,.book.chance .more a{color:#0B4F8C}.book.chance .n{color:#0E2F4F}.book.chance .b,.book.chance .more,.book.chance .tag{color:#3D5A78}.book.chance .p{color:#A4133C}.book.chance .tag{border-color:#C3D0DE}
+.book.logic{background:#FFFFFF;border-color:#8C8C8C;border-left-color:#1C5E3C}.book.logic .t,.book.logic .more a{color:#1C5E3C}.book.logic .n{color:#000000}.book.logic .b,.book.logic .more,.book.logic .tag{color:#4D4D4D}.book.logic .p{color:#B3261E}.book.logic .tag{border-color:#8C8C8C}
+.book.structures{background:#FBFAF6;border-color:#CDD0D4;border-left-color:#0F5F73}.book.structures .t,.book.structures .more a{color:#0F5F73}.book.structures .n{color:#15171A}.book.structures .b,.book.structures .more,.book.structures .tag{color:#4B5058}.book.structures .p{color:#B3261E}.book.structures .tag{border-color:#CDD0D4}
+.book.languages{background:#F4EBD0;border-color:#D8C9A3;border-left-color:#231A12}.book.languages .t,.book.languages .more a{color:#1D4F91}.book.languages .n{color:#231A12}.book.languages .b,.book.languages .more,.book.languages .tag{color:#5A4A3A}.book.languages .p{color:#A11D1D}.book.languages .tag{border-color:#D8C9A3}
+.book.fire{background:#FBF6EE;border-color:#E3D3C2;border-left-color:#B8420F}.book.fire .t,.book.fire .more a{color:#A0360B}.book.fire .n{color:#2B1810}.book.fire .b,.book.fire .more,.book.fire .tag{color:#6A4B3B}.book.fire .p{color:#8E1B3A}.book.fire .tag{border-color:#E3D3C2}
 @media (prefers-color-scheme:dark){
 body{background:#121214;color:#ececf0}
-.sub,.b,footer{color:#a3a3ad}
-a.walk{background:#1c1c20;border-color:#2c2c33}
-.t,.more a{color:#8fb0ff}
-.p{color:#f0b45a}
+.sub,footer{color:#a3a3ad}
+.book.chance{background:#0E3A63;border-color:#3C6A96;border-left-color:#BFE0FF}.book.chance .t,.book.chance .more a{color:#BFE0FF}.book.chance .n{color:#F3F7FB}.book.chance .b,.book.chance .more,.book.chance .tag{color:#C3D6EA}.book.chance .p{color:#FFC2CF}.book.chance .tag{border-color:#3C6A96}
+.book.logic{background:#0F3D2B;border-color:#2E7D52;border-left-color:#FF3B30}.book.logic .t,.book.logic .more a{color:#E8C766}.book.logic .n{color:#F2F2E9}.book.logic .b,.book.logic .more,.book.logic .tag{color:#BFD6C8}.book.logic .p{color:#FF9C8F}.book.logic .tag{border-color:#2E7D52}
+.book.structures{background:#1D2428;border-color:#3A464C;border-left-color:#F6D365}.book.structures .t,.book.structures .more a{color:#F6D365}.book.structures .n{color:#F1F3EE}.book.structures .b,.book.structures .more,.book.structures .tag{color:#BAC3C2}.book.structures .p{color:#FFAFA3}.book.structures .tag{border-color:#3A464C}
+.book.languages{background:#081A10;border-color:#1F4A2E;border-left-color:#3DDC84}.book.languages .t,.book.languages .more a{color:#7CFFA8}.book.languages .n{color:#C8F7D2}.book.languages .b,.book.languages .more,.book.languages .tag{color:#8FD9A4}.book.languages .p{color:#FFB86B}.book.languages .tag{border-color:#1F4A2E}
+.book.fire{background:#17100C;border-color:#3B2A20;border-left-color:#FF8A3D}.book.fire .t,.book.fire .more a{color:#FFB37A}.book.fire .n{color:#F7EBDD}.book.fire .b,.book.fire .more,.book.fire .tag{color:#D2B9A5}.book.fire .p{color:#FFA3B5}.book.fire .tag{border-color:#3B2A20}
 }
 </style>
 </head>
@@ -33,44 +41,52 @@ a.walk{background:#1c1c20;border-color:#2c2c33}
 <h1>Book walks</h1>
 <p class="sub">First 10% of each book, one video stretch per page. Each walk updates in place: when a newer build is up, the page reloads or offers a button.</p>
 
-<a class="walk" href="https://newdldewdl.github.io/flows/bt-prob-ch1-videos.html">
-  <div class="t">Probability</div>
-  <div class="b">Bertsekas and Tsitsiklis, 2nd ed.</div>
-  <div class="n">pdf 1-54: 43 with video, 10 read-only</div>
-  <div class="p">pdf 11 still to come</div>
-</a>
-<p class="more">Also: <a href="https://newdldewdl.github.io/flows/bt-prob-hw1-addon.html">Problem Set 1 pages</a></p>
+<section class="book chance">
+  <a class="walk" href="https://newdldewdl.github.io/flows/bt-prob-ch1-videos.html">
+    <div class="t">Probability <span class="tag">chance</span></div>
+    <div class="b">Bertsekas and Tsitsiklis, 2nd ed.</div>
+    <div class="n">pdf 1-54: 43 with video, 10 read-only</div>
+    <div class="p">pdf 11 still to come</div>
+  </a>
+  <p class="more">Also: <a href="https://newdldewdl.github.io/flows/bt-prob-hw1-addon.html">Problem Set 1 pages</a> (18 with video)</p>
+</section>
 
-<a class="walk" href="https://newdldewdl.github.io/flows/cs4341-ddca-ch1-walk.html">
-  <div class="t">Digital Logic</div>
-  <div class="b">Harris and Harris, 2nd ed.</div>
-  <div class="n">pdf 1-74: 46 with video, 27 read-only</div>
-  <div class="p">pdf 31 still to come</div>
-</a>
+<section class="book logic">
+  <a class="walk" href="https://newdldewdl.github.io/flows/cs4341-ddca-ch1-walk.html">
+    <div class="t">Digital Logic <span class="tag">logic</span></div>
+    <div class="b">Harris and Harris, 2nd ed.</div>
+    <div class="n">pdf 1-74: 46 with video, 27 read-only</div>
+    <div class="p">pdf 31 still to come</div>
+  </a>
+</section>
 
-<a class="walk" href="https://newdldewdl.github.io/flows/cs3345-weiss-first10-walk.html">
-  <div class="t">Data Structures</div>
-  <div class="b">Weiss, Java 3rd ed.</div>
-  <div class="n">pdf 1-64: 42 with video, 22 read-only</div>
-  <div class="p">Rough build: even volume not applied yet</div>
-</a>
-<p class="more">Also: <a href="https://newdldewdl.github.io/flows/cs3345-weiss-ch7-sorting-walk.html">Ch. 7 sorting</a> and <a href="https://newdldewdl.github.io/flows/cs3345-weiss-ch8-unionfind-walk.html">Ch. 8 union-find</a></p>
+<section class="book structures">
+  <a class="walk" href="https://newdldewdl.github.io/flows/cs3345-weiss-first10-walk.html">
+    <div class="t">Data Structures <span class="tag">structures</span></div>
+    <div class="b">Weiss, Java 3rd ed.</div>
+    <div class="n">pdf 1-64: 42 with video, 22 read-only</div>
+  </a>
+  <p class="more">Also: <a href="https://newdldewdl.github.io/flows/cs3345-weiss-ch7-sorting-walk.html">Ch. 7 sorting</a> (38 with video) and <a href="https://newdldewdl.github.io/flows/cs3345-weiss-ch8-unionfind-walk.html">Ch. 8 union-find</a> (11 with video)</p>
+</section>
 
-<a class="walk" href="https://newdldewdl.github.io/flows/cs4337-sebesta-first10-walk.html">
-  <div class="t">Programming Languages</div>
-  <div class="b">Sebesta, 12th ed.</div>
-  <div class="n">pdf 1-78: 45 with video, 24 read-only</div>
-  <div class="p">Rough build: 9 pages still being vetted (pdf 35, 40, 56, 58, 65, 66, 68, 76, 77)</div>
-</a>
+<section class="book languages">
+  <a class="walk" href="https://newdldewdl.github.io/flows/cs4337-sebesta-first10-walk.html">
+    <div class="t">Programming Languages <span class="tag">languages</span></div>
+    <div class="b">Sebesta, 12th ed.</div>
+    <div class="n">pdf 1-78: 45 with video, 24 read-only</div>
+    <div class="p">9 pages still without a video: pdf 35, 40, 56, 58, 65, 66, 68, 76, 77</div>
+  </a>
+</section>
 
-<a class="walk" href="https://newdldewdl.github.io/flows/cs3162-gof-first10-walk.html">
-  <div class="t">A Gift of Fire</div>
-  <div class="b">Baase and Henry, 5th ed.</div>
-  <div class="n">pdf 1-55: 33 with video, 22 read-only</div>
-  <div class="p">Rough build: even volume applied, its muted check not run yet</div>
-</a>
+<section class="book fire">
+  <a class="walk" href="https://newdldewdl.github.io/flows/cs3162-gof-first10-walk.html">
+    <div class="t">A Gift of Fire <span class="tag">fire</span></div>
+    <div class="b">Baase and Henry, 5th ed.</div>
+    <div class="n">pdf 1-55: 33 with video, 22 read-only</div>
+  </a>
+</section>
 
-<footer>Counts read from the live pages 2026-11-18 12:53 CST.</footer>
+<footer>Each book's walks wear that book's own theme, and each card here wears its colors. Counts read from the live pages 2026-11-18 18:04 CST.</footer>
 </main>
 </body>
 </html>
